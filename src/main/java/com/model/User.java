@@ -1,5 +1,13 @@
 package com.model;
 
+
+import javax.persistence.Table;
+import javax.persistence.Id;
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+
+@Table(name="User")
 public class User {
 	private Integer 	userId;
 	private String		userName;
@@ -8,6 +16,7 @@ public class User {
 	private String 		eMail;
 	private String 		passWord;
 	private Integer 	groupId;
+	
 	public Integer getUserId() {
 		return userId;
 	}

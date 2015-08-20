@@ -12,16 +12,11 @@ public class Main {
 		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("Beans.xml");
 		UserDAO userDAP = context.getBean(UserDAO.class);
 		
-		User u = new User();
-		u.setUserName("XBerndY");
-		u.setName("Bernd");
-		u.setLastName("Gutmann");
-		u.seteMail("erefr@web.de");
-		u.setPassWord("123456");
-		u.setGroupId(25);
+		List<User> list = userDAP.list();
 		
-		userDAP.save(u);
-		
+		for(User p : list){
+            System.out.println("Person List::"+p);
+        }
         //close resources
         context.close(); 
 	}

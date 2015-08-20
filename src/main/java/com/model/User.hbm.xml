@@ -2,17 +2,21 @@
 <!DOCTYPE hibernate-mapping PUBLIC
         "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+        
         <hibernate-mapping package="com.model">
-	    	<class name="User" table="USER">
-	        	<id name="userId" column="USERID">
+	    	
+	    	<class name="User" table="user">
+	        	
+	        	<id name="userId" type="int" column="userid">
 	            	<generator class="native"/>
 	        	</id>
-	        <property name="userName" column="USERNAME" />
-	        <property name="name" column="NAME" />
-	        <property name="lastName" column="LASTNAME" />
-	        <property name="eMail" column="EMAIL" />
-	        <property name="passWord" column="PASSWORD" />
-	        <property name="groupId" column="GROUPS_GROUPID" />
+	        	
+	        <property name="userName" column="username" type="string"/>
+	        <property name="name" column="name" type="string" />
+	        <property name="lastName" column="lastname" type="string" />
+	        <property name="eMail" column="email" type="string"/>
+	        <property name="passWord" column="password" type="string"/>
+	        <property name="groupId" column="groups_groupid" type="int"/>
    		 </class> 
 </hibernate-mapping>
         

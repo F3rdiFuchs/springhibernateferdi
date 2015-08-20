@@ -1,5 +1,6 @@
 package com.model;
 
+import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -22,13 +23,18 @@ public class UserDAOImpl implements UserDAO {
         session.close();
 	}
 	
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings("unchecked") 
 	public List<User> list()
 	{
 		Session session = this.m_sessionFactory.openSession();
-		List<User> personList = session.createQuery("from user").list();
+		session.beginTransaction();
+		
+		List<User> personList = (List<User>) session.createQuery("FROM User").list();
+		session.getTransaction().commit();
+		
+		
 		session.close();
-		return null;
+		return personList;
 	}
 
 }
