@@ -5,7 +5,7 @@
         
         <hibernate-mapping package="com.model">
 	    	
-	    	<class name="UserGroup" table="UserGroup">
+	    	<class name="Groups" table="groups">
 	        	
 	        	<id name="groupId" type="int" column="groupid">
 	            	<generator class="native"/>

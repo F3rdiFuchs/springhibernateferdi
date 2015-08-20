@@ -10,20 +10,18 @@ public class Main {
 	public static void main(String[] args) {
 		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("Beans.xml");
 		
-		UserDAO userDAO			= 	context.getBean(UserDAO.class);
+		UserDAO userDAO				= context.getBean(UserDAO.class);
+		GroupsDAO userGroupDAO 	= context.getBean(GroupsDAO.class);
+		//TaskDAO taskDAO 			= context.getBean(TaskDAO.class);
 		
-		UserGroupDAO userGroupDAO 	= context.getBean(UserGroupDAO.class);
 		
-		TaskDAO taskDAO 			= context.getBean(TaskDAO.class);
+		List<Groups> list = userGroupDAO.list();
 		
-		/**
-		List<User> list = userDAP.list();
-		
-		for(User p : list){
+		for(Groups p : list){
             System.out.println("Person List::"+p);
         }
         //close resources
-        context.close(); */
+        context.close(); 
 	}
 
 }

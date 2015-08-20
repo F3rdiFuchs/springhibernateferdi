@@ -22,7 +22,7 @@
     	</constructor-arg>
 	</bean>
 	
-	<bean id="userGroupDAO" class="com.model.UserGroupDAOImpl">
+	<bean id="groupsDAO" class="com.model.GroupsDAOImpl">
 		<constructor-arg>
         	<ref bean="sessionFactory" />
     	</constructor-arg>
