@@ -4,15 +4,15 @@
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
         <hibernate-mapping package="com.model">
 	    	<class name="User" table="USER">
-	        	<id name="m_userId" column="USERID">
+	        	<id name="userId" column="USERID">
 	            	<generator class="native"/>
 	        	</id>
-	        <property name="m_userName" column="USERNAME" />
-	        <property name="m_name" column="NAME" />
-	        <property name="m_lastName" column="LASTNAME" />
-	        <property name="m_eMail" column="EMAIL" />
-	        <property name="m_passWord" column="PASSWORD" />
-	        <property name="m_groupId" column="GROUPS_GROUPID" />
+	        <property name="userName" column="USERNAME" />
+	        <property name="name" column="NAME" />
+	        <property name="lastName" column="LASTNAME" />
+	        <property name="eMail" column="EMAIL" />
+	        <property name="passWord" column="PASSWORD" />
+	        <property name="groupId" column="GROUPS_GROUPID" />
    		 </class> 
 </hibernate-mapping>
         

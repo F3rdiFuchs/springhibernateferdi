@@ -1,69 +1,55 @@
 package com.model;
 
 public class User {
-	private Integer 	m_userId;
-	private String		m_userName;
-	private String 		m_name;
-	private String 		m_lastName;
-	private String 		m_eMail;
-	private String 		m_passWord;
-	private Integer 	m_groupId;
-	
-	public void setUserId(Integer _userId)
-	{
-		this.m_userId = _userId;
+	private Integer 	userId;
+	private String		userName;
+	private String 		name;
+	private String 		lastName;
+	private String 		eMail;
+	private String 		passWord;
+	private Integer 	groupId;
+	public Integer getUserId() {
+		return userId;
 	}
-	public void setUserName(String _userName)
-	{
-		this.m_userName = _userName;
+	public void setUserId(Integer userId) {
+		this.userId = userId;
 	}
-	public void setName(String _name)
-	{
-		this.m_name = _name;
+	public String getUserName() {
+		return userName;
 	}
-	public void setLastName(String _lastName)
-	{
-		this.m_lastName = _lastName;
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
-	public void setEmail(String _eMail)
-	{
-		this.m_eMail = _eMail;
+	public String getName() {
+		return name;
 	}
-	public void setPassword(String _password)
-	{
-		this.m_passWord = _password;
+	public void setName(String name) {
+		this.name = name;
 	}
-	public void setGroupId(Integer _groupId)
-	{
-		this.m_groupId = _groupId;
+	public String getLastName() {
+		return lastName;
 	}
-	public Integer getUserId()
-	{
-		return this.m_userId;
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
 	}
-	public String getUserName()
-	{
-		return this.m_userName;
+	public String geteMail() {
+		return eMail;
 	}
-	public String getName()
-	{
-		return this.m_name;
+	public void seteMail(String eMail) {
+		this.eMail = eMail;
 	}
-	public String getLastName()
-	{
-		return this.m_lastName;
+	public String getPassWord() {
+		return passWord;
 	}
-	public String getEmail()
-	{
-		return this.m_eMail;
+	public void setPassWord(String passWord) {
+		this.passWord = passWord;
 	}
-	public String getPassword()
-	{
-		return this.m_passWord;
+	public Integer getGroupId() {
+		return groupId;
 	}
-	public Integer getGroupId()
-	{
-		return this.m_groupId;
+	public void setGroupId(Integer groupId) {
+		this.groupId = groupId;
 	}
+
 
 }
