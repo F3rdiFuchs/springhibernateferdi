@@ -1,11 +1,21 @@
 package com.model;
 
+import java.util.HashSet;
+
 public class UserGroup {
 	private Integer groupId;
 	private String name;
 	private String description;
 	private Integer accessLevel;
 	
+	private HashSet<User> employee = new HashSet<User>();
+	
+	public HashSet<User> getEmployee() {
+		return employee;
+	}
+	public void setEmployee(HashSet<User> employee) {
+		this.employee = employee;
+	}
 	public Integer getGroupId() {
 		return groupId;
 	}

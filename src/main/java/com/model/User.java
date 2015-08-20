@@ -7,7 +7,6 @@ import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 
-@Table(name="User")
 public class User {
 	private Integer 	userId;
 	private String		userName;

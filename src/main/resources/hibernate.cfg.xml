@@ -7,5 +7,7 @@
     <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
     <property name="show_sql">true</property> 
     <mapping resource="com/model/User.hbm.xml"/>
+    <mapping resource="com/model/UserGroup.hbm.xml"/>
+    <mapping resource="com/model/Task.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>
