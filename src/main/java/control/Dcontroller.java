@@ -56,6 +56,11 @@ public class Dcontroller {
 		_model.addAttribute("groups", new Groups());
 		_model.addAttribute("listGroups", this.groupsService.listGroup());
 		return "user";
+	}
+	
+	@RequestMapping(value = "/groups/{id}", method = RequestMethod.GET)
+	public String listUserInGroup(int _id)
+	{
 		
 	}
 	

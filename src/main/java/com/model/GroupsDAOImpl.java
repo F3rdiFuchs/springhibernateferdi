@@ -52,4 +52,12 @@ public class GroupsDAOImpl implements GroupsDAO {
 		session.getTransaction().commit();
 		session.close();
 	}
+	public List<User> listUserInGroup(int _userid) {
+		Session session = this.m_sessionFactory.openSession();
+		session.beginTransaction();
+		List<User> userInGroupList = session.createQuery("From User Where Id = :_userid ").list();
+		session.getTransaction().commit();
+		session.close();
+		return userInGroupList;
+	}
 }

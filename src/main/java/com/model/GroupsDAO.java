@@ -6,5 +6,6 @@ public interface GroupsDAO {
 	public void addGroup(Groups _group);
 	public void updateGroup(Groups _group);
 	public List <Groups> listGroups();
+	public List<User> listUserInGroup(int _userid);
 	public void removeGroup(int _group);
 }
