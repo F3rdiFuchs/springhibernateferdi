@@ -8,33 +8,14 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>Welcome</title>
+		<title>Userlist</title>
 	</head> 
 	<body>
-		<h1>Benutzerliste:</h1>
-		<c:if test="${!empty listUser}">
-    <table class="tg">
-    <tr>
-        <th width="100">Userid</th>
-        <th width="100">Username</th>
-        <th width="100">Vorame</th>
-        <th width="100">Nachname</th>
-        <th width="100">Email</th>
-        <th width="100">Passwort</th>
-        <th width="100">Gruppenid</th>
-    </tr>
-    <c:forEach items="${listUser}" var="user">
-        <tr>
-            <td>${user.userId}</td>
-            <td>${user.userName}</td>
-            <td>${user.name}</td>
-            <td>${user.lastName}</td>
-            <td>${user.eMail}</td>
-            <td>${user.passWord}</td>
-            <td>${user.groupId}</td>
-        </tr>
-    </c:forEach>
-    </table>
-</c:if>
+		<h1>Start</h1>
+		<br>
+		 <a href="http://localhost:8080/springhibernateferdi/users">Userlist</a><br>
+		 <a href="http://localhost:8080/springhibernateferdi/groups">Groups</a><br>
+		 <a href="http://localhost:8080/springhibernateferdi/tasks">Tasks</a><br>
+		
 	</body>
 </html>

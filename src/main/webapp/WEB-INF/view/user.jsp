@@ -9,17 +9,17 @@
 		<title>Welcome</title>
 	</head> 
 	<body>
-		<h1>Benutzerliste:</h1>
+		<h1>Userlist:</h1>
 		<c:if test="${!empty listUser}">
     <table class="tg">
     <tr>
         <th width="100">Userid</th>
         <th width="100">Username</th>
-        <th width="100">Vorame</th>
-        <th width="100">Nachname</th>
+        <th width="100">Name</th>
+        <th width="100">Last name</th>
         <th width="100">Email</th>
-        <th width="100">Passwort</th>
-        <th width="100">Gruppenid</th>
+        <th width="100">Password</th>
+        <th width="100">Groupid</th>
     </tr>
     <c:forEach items="${listUser}" var="user">
         <tr>
@@ -34,5 +34,6 @@
     </c:forEach>
     </table>
 </c:if>
+<a href="http://localhost:8080/springhibernateferdi">back</a>
 	</body>
 </html>
