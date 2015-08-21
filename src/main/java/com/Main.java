@@ -1,6 +1,8 @@
 package com;
 
 import java.util.List;
+
+
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.model.*;
@@ -11,13 +13,13 @@ public class Main {
 		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("Beans.xml");
 		
 		UserDAO userDAO				= context.getBean(UserDAO.class);
-		GroupsDAO userGroupDAO 	= context.getBean(GroupsDAO.class);
-		//TaskDAO taskDAO 			= context.getBean(TaskDAO.class);
+		GroupsDAO userGroupDAO 		= context.getBean(GroupsDAO.class);
+		TasksDAO taskDAO 			= context.getBean(TasksDAO.class);
 		
 		
-		List<Groups> list = userGroupDAO.list();
+		List<Tasks> list =   taskDAO.list();
 		
-		for(Groups p : list){
+		for(Tasks p : list){
             System.out.println("Person List::"+p);
         }
         //close resources

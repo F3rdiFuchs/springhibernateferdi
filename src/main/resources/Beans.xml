@@ -28,7 +28,7 @@
     	</constructor-arg>
 	</bean>
 	
-	<bean id="taskDAO" class="com.model.TaskDAOImpl">
+	<bean id="tasksDAO" class="com.model.TasksDAOImpl">
 		<constructor-arg>
         	<ref bean="sessionFactory" />
     	</constructor-arg>

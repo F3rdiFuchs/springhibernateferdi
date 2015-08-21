@@ -1,6 +1,6 @@
 package com.model;
 
-public class Task {
+public class Tasks {
 	private Integer taskId;
 	private String description;
 	private String start;

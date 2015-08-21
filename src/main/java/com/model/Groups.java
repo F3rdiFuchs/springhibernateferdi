@@ -1,21 +1,23 @@
 package com.model;
 
 import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Groups {
 	private Integer groupId;
 	private String name;
 	private String description;
 	private Integer accessLevel;
-	
-	private List<User> employee;
-	
-	public List<User> getEmployee() {
+	public Set<User> getEmployee() {
 		return employee;
 	}
-	public void setEmployee(List<User> employee) {
+	public void setEmployee(Set<User> employee) {
 		this.employee = employee;
 	}
+	private Set<User> employee = new HashSet<User>();
+	
+	
 	public Integer getGroupId() {
 		return groupId;
 	}
@@ -40,4 +42,6 @@ public class Groups {
 	public void setAccessLevel(Integer accessLevel) {
 		this.accessLevel = accessLevel;
 	}
+	
+	
 }

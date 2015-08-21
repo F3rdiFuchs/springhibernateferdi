@@ -5,7 +5,7 @@
         
         <hibernate-mapping package="com.model">
 	    	
-	    	<class name="Task" table="Task">
+	    	<class name="Tasks" table="Tasks">
 	        	
 	        	<id name="taskId" type="int" column="taskId">
 	            	<generator class="native"/>
