@@ -6,6 +6,6 @@ import com.model.User;
 public interface UserDAO {
 	public void addUser(User _user);
 	public void updateUser(User _user);
-	public List <User> list();
+	public List <User> listUser();
 	public void removeUser(int _userId);
 }

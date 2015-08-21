@@ -14,7 +14,6 @@
     <mvc:annotation-driven />
 
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-	        <!-- Example: a logical view name of 'showMessage' is mapped to '/WEB-INF/jsp/showMessage.jsp' -->
 	        <property name="prefix" value="/WEB-INF/view/"/>
 	        <property name="suffix" value=".jsp"/>
 	</bean>
@@ -29,6 +28,11 @@
 	<bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
     	<property name="dataSource" ref="dataSource" />
     	<property name="configLocation" value="classpath:hibernate.cfg.xml" />
+    	<property name="annotatedClasses">
+    		<list>
+    			<value>com.model.User</value>
+    		</list>
+    	</property>
 	</bean>
 	
 	<bean id="userDAO" class="com.model.UserDAOImpl">
@@ -43,10 +47,13 @@
     	</constructor-arg>
 	</bean>
 	
-	<bean id="tasksDAO" class="com.model.TasksDAOImpl">
+	<bean id="userService" class="com.service.UserServiceImpl">
+		<property name="userDAO" ref="userDAO"></property>
+	</bean>
+	
+	<bean id=" tasksDAO " class="com.model.TasksDAOImpl">
 		<constructor-arg>
         	<ref bean="sessionFactory" />
     	</constructor-arg>
 	</bean>
-
 </beans>

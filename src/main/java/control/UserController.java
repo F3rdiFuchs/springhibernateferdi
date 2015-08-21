@@ -10,27 +10,30 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.model.UserDAOImpl;
+import com.service.UserService;
 import com.model.User;
 
 @Controller
 public class UserController {
-	private UserDAOImpl user;
-
-	public UserDAOImpl getUser() {
-		return user;
+	private UserService userService;
+	
+	
+	public UserService getUserService() {
+		return userService;
 	}
 	
-
-	@Qualifier(value="user")
-	public void setUser(UserDAOImpl user) {
-		this.user = user;
+	@Autowired(required=true)
+	@Qualifier(value="userService")
+	public void setUserService(UserService _userService) {
+		this.userService = _userService;
 	}
-	
+
+
 	@RequestMapping(value = "/users", method = RequestMethod.GET)
-	public String listUser(Model model)
+	public String listUser(Model _model)
 	{
-		model.addAttribute("tuser", new User());
-		model.addAttribute("listUser", this.user.list());
+		_model.addAttribute("user", new User());
+		_model.addAttribute("listUser", this.userService.listUser());
 		return "user";
 		
 	}

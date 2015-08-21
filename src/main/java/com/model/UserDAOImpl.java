@@ -24,17 +24,17 @@ public class UserDAOImpl implements UserDAO {
 	}
 	
 	@SuppressWarnings("unchecked") 
-	public List<User> list()
+	public List<User> listUser()
 	{
 		Session session = this.m_sessionFactory.openSession();
 		session.beginTransaction();
 		
-		List<User> personList = (List<User>) session.createQuery("FROM User").list();
+		List<User> userList = (List<User>) session.createQuery("FROM User").list();
 		session.getTransaction().commit();
 		
 		
 		session.close();
-		return personList;
+		return userList;
 	}
 	
 	public void updateUser(User _user) {
