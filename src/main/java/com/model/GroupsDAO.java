@@ -3,6 +3,8 @@ package com.model;
 import java.util.List;
 
 public interface GroupsDAO {
-	public void save(Groups _userGroup);
-	public List <Groups> list();
+	public void addGroup(Groups _group);
+	public void updateGroup(Groups _group);
+	public List <Groups> listGroups();
+	public void removeGroup(int _group);
 }

@@ -31,6 +31,7 @@
     	<property name="annotatedClasses">
     		<list>
     			<value>com.model.User</value>
+    			<value>com.model.Groups</value>
     		</list>
     	</property>
 	</bean>
@@ -49,6 +50,10 @@
 	
 	<bean id="userService" class="com.service.UserServiceImpl">
 		<property name="userDAO" ref="userDAO"></property>
+	</bean>
+	
+	<bean id="groupsService" class="com.service.GroupsServiceImpl">
+		<property name="groupsDAO" ref="groupsDAO"></property>
 	</bean>
 	
 	<bean id=" tasksDAO " class="com.model.TasksDAOImpl">

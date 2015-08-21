@@ -34,6 +34,24 @@
     </c:forEach>
     </table>
 </c:if>
+<c:if test="${!empty listGroups}">
+    <table class="tg">
+    <tr>
+        <th width="100">Groupid</th>
+        <th width="100">Name</th>
+        <th width="500">Description</th>
+        <th width="100">Accesslevel</th>
+    </tr>
+    <c:forEach items="${listGroups}" var="groups">
+        <tr>
+            <td>${groups.groupId}</td>
+            <td>${groups.name}</td>
+            <td>${groups.description}</td>
+            <td>${groups.accessLevel}</td>
+        </tr>
+    </c:forEach>
+    </table>
+</c:if>
 <a href="http://localhost:8080/springhibernateferdi">back</a>
 	</body>
 </html>

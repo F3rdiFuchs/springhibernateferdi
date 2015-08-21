@@ -14,7 +14,7 @@ public class GroupsDAOImpl implements GroupsDAO {
 	{
 		this.m_sessionFactory = _sessionFactory;
 	}
-	public void save(Groups _userGroup)
+	public void addGroup(Groups _userGroup)
 	{
 		Session session = this.m_sessionFactory.openSession();
 		Transaction tx = session.beginTransaction();
@@ -24,7 +24,7 @@ public class GroupsDAOImpl implements GroupsDAO {
 	}
 	
 	@SuppressWarnings("unchecked")
-	public List<Groups> list()
+	public List<Groups> listGroups()
 	{
 		Session session = this.m_sessionFactory.openSession();
 		session.beginTransaction();
@@ -33,5 +33,23 @@ public class GroupsDAOImpl implements GroupsDAO {
 		session.getTransaction().commit();
 		session.close();
 		return groupList;
+	}
+	public void updateGroup(Groups _group) {
+		Session session = this.m_sessionFactory.openSession();
+		Transaction tx = session.beginTransaction();
+		session.update(_group);
+		tx.commit();
+		session.close();
+		
+	}
+	public void removeGroup(int _groupid) {
+		Session session = this.m_sessionFactory.openSession();
+		session.beginTransaction();
+		Groups group = (Groups) session.load(Groups.class, new Integer(_groupid));
+		if(null != group){
+            session.delete(group);
+        }
+		session.getTransaction().commit();
+		session.close();
 	}
 }

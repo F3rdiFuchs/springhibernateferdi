@@ -10,7 +10,7 @@
 	</head> 
 	<body>
 		<h1>Groups:</h1>
-		<c:if test="${!empty listGroup}">
+		<c:if test="${!empty listGroups}">
     <table class="tg">
     <tr>
         <th width="100">Groupid</th>
@@ -18,12 +18,12 @@
         <th width="100">Description</th>
         <th width="100">Accesslevel</th>
     </tr>
-    <c:forEach items="${listGroup}" var="user">
+    <c:forEach items="${listGroups}" var="group">
         <tr>
-            <td>${group.groupId}</td>
-            <td>${group.name}</td>
-            <td>${group.description}</td>
-            <td>${group.accesslevel}</td>
+            <td>${groups.groupId}</td>
+            <td>${groups.name}</td>
+            <td>${groups.description}</td>
+            <td>${groups.accesslevel}</td>
         </tr>
     </c:forEach>
     </table>
