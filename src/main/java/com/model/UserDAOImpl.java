@@ -14,7 +14,7 @@ public class UserDAOImpl implements UserDAO {
 		this.m_sessionFactory = _sessionFactory;
 	}
 	
-	public void save(User _user)
+	public void addUser(User _user)
 	{
 		Session session = this.m_sessionFactory.openSession();
 		Transaction tx = session.beginTransaction();
@@ -35,6 +35,27 @@ public class UserDAOImpl implements UserDAO {
 		
 		session.close();
 		return personList;
+	}
+	
+	public void updateUser(User _user) {
+		Session session = this.m_sessionFactory.openSession();
+		Transaction tx = session.beginTransaction();
+		session.update(_user);
+		tx.commit();
+		session.close();
+		
+	}
+
+	public void removeUser(int _userId) {
+		Session session = this.m_sessionFactory.openSession();
+		session.beginTransaction();
+		User user = (User) session.load(User.class, new Integer(_userId));
+		if(null != user){
+            session.delete(user);
+        }
+		session.getTransaction().commit();
+		session.close();
+		
 	}
 
 }

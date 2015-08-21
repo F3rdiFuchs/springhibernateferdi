@@ -16,14 +16,8 @@ public class Main {
 		GroupsDAO userGroupDAO 		= context.getBean(GroupsDAO.class);
 		TasksDAO taskDAO 			= context.getBean(TasksDAO.class);
 		
+		userDAO.removeUser(6);
 		
-		List<Tasks> list =   taskDAO.list();
-		
-		for(Tasks p : list){
-            System.out.println("Person List::"+p);
-        }
-        //close resources
-        context.close(); 
 	}
 
 }
