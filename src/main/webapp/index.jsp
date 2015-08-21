@@ -12,7 +12,7 @@
 	</head> 
 	<body>
 		<h1>Benutzerliste:</h1>
-		<c:if test="${!empty listUser}">
+		<c:if test="${empty listUser}">
     <table class="tg">
     <tr>
         <th width="100">Userid</th>

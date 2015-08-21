@@ -10,13 +10,43 @@
          <context:component-scan
             base-package="org.springframework.samples.web"/>  -->
 
-
+		<context:component-scan base-package="control" />
     <mvc:annotation-driven />
 
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 	        <!-- Example: a logical view name of 'showMessage' is mapped to '/WEB-INF/jsp/showMessage.jsp' -->
 	        <property name="prefix" value="/WEB-INF/view/"/>
 	        <property name="suffix" value=".jsp"/>
+	</bean>
+	
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+	    <property name="driverClassName" value="com.mysql.jdbc.Driver" />
+		<property name="url" value="jdbc:mysql://localhost:3306/mydb" />
+		<property name="username" value="root" />
+		<property name="password" value="123123" />
+	</bean>
+	
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+    	<property name="dataSource" ref="dataSource" />
+    	<property name="configLocation" value="classpath:hibernate.cfg.xml" />
+	</bean>
+	
+	<bean id="userDAO" class="com.model.UserDAOImpl">
+		<constructor-arg>
+        	<ref bean="sessionFactory" />
+    	</constructor-arg>
+	</bean>
+	
+	<bean id="groupsDAO" class="com.model.GroupsDAOImpl">
+		<constructor-arg>
+        	<ref bean="sessionFactory" />
+    	</constructor-arg>
+	</bean>
+	
+	<bean id="tasksDAO" class="com.model.TasksDAOImpl">
+		<constructor-arg>
+        	<ref bean="sessionFactory" />
+    	</constructor-arg>
 	</bean>
 
 </beans>

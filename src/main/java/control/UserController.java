@@ -19,17 +19,19 @@ public class UserController {
 	public UserDAOImpl getUser() {
 		return user;
 	}
+	
 
+	@Qualifier(value="user")
 	public void setUser(UserDAOImpl user) {
 		this.user = user;
 	}
 	
-	@RequestMapping(value = "/user", method = RequestMethod.GET)
+	@RequestMapping(value = "/users", method = RequestMethod.GET)
 	public String listUser(Model model)
 	{
-		model.addAttribute("user", new User());
+		model.addAttribute("tuser", new User());
 		model.addAttribute("listUser", this.user.list());
-		return null;
+		return "user";
 		
 	}
 	
