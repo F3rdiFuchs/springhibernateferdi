@@ -4,13 +4,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import com.service.GroupsService;
 import com.service.UserService;
 import com.model.Groups;
+import com.model.Tasks;
 import com.model.User;
 
 @Controller
@@ -86,6 +86,14 @@ public class Dcontroller {
 		this.userService.removeUser(userid);
 		return "redirect:/users";
 	}
+	
+	@RequestMapping(value = "/tasks", method = RequestMethod.GET)	
+	private String listTasks(Model _model)
+	{
+		_model.addAttribute("tasks", new Tasks());
+		return "tasks";
+	}
+	
 	
 	
 }

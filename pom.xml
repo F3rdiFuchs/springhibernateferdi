@@ -20,6 +20,9 @@
 
 		<!-- Spring -->
 		<spring-framework.version>4.2.0.RELEASE</spring-framework.version>
+		
+		<!-- Spring Security -->
+		<hibernate-security.version>4.0.2.RELEASE</hibernate-security.version>
 
 		<!-- Hibernate / JPA -->
 		<hibernate.version>4.3.11.Final</hibernate.version>
@@ -125,5 +128,11 @@
             <artifactId>commons-dbcp</artifactId>
             <version>1.4</version>
         </dependency>
+        <dependency>
+	<groupId>org.springframework.security</groupId>
+	<artifactId>spring-security-core</artifactId>
+	<version>${hibernate-security.version}</version>
+</dependency>
 	</dependencies>	
+	
 </project>

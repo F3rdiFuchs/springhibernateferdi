@@ -2,6 +2,9 @@ package com.model;
 
 
 import javax.persistence.Table;
+
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
 import javax.persistence.Id;
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
@@ -57,6 +60,16 @@ public class User {
 	}
 	public void setGroupId(Integer groupId) {
 		this.groupId = groupId;
+	}
+	public void encryptPasswd() {
+		int count = 0;
+		while(count < 10)
+		{
+			BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+			this.passWord = passwordEncoder.encode(this.passWord);
+			count++;
+		}
+		
 	}
 
 

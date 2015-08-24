@@ -1,5 +1,6 @@
 package com.model;
 
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -17,6 +18,7 @@ public class UserDAOImpl implements UserDAO {
 	public void addUser(User user)
 	{
 		user.setGroupId(0);
+		user.encryptPasswd();
 		Session session = this.m_sessionFactory.openSession();
 		session.beginTransaction();
 		session.persist(user);
@@ -50,9 +52,11 @@ public class UserDAOImpl implements UserDAO {
 	public void removeUser(String uId) {
 		Session session = this.m_sessionFactory.openSession();
 		session.beginTransaction();
+		
 		Query query = session.createQuery("DELETE FROM User WHERE userid = :uId");
 		query.setString("uId", uId);
 		query.executeUpdate();
+		
 		session.getTransaction().commit();
 		session.close();
 		
@@ -65,10 +69,11 @@ public class UserDAOImpl implements UserDAO {
 		
 		List<User> userList = (List<User>) session.createQuery("FROM User WHERE groups_groupid = :id").list();
 		session.getTransaction().commit();
-		
-		
+			
 		session.close();
 		return userList;
 	}
+
+	
 
 }

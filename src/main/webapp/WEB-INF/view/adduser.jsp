@@ -13,6 +13,7 @@
 		<div>
 		  <label for="absender">Username:</label>
 		  <input type="text" id="userName" name="userName" />
+		  <form:errors path="name" cssClass="error"/>
 		</div>
 		<div>
 		  <label for="absender">Name:</label>
