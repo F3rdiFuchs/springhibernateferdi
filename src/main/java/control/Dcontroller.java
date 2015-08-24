@@ -60,10 +60,10 @@ public class Dcontroller {
 	}
 	
 	@RequestMapping(value = "/groups/{id}", method = RequestMethod.GET)
-	public  @ResponseBody String listUserInGroup (@PathVariable(value="id")int _id, Model _model)
+	public String listUserInGroup (@PathVariable int id, Model _model)
 	{
 		_model.addAttribute("user", new User());
-		_model.addAttribute("listUser", this.userService.listUserbyId(_id));
+		_model.addAttribute("listUserById", this.groupsService.listUserInGroup(id));
 		return "user";
 	}
 	

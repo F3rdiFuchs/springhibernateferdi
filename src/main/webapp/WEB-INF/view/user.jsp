@@ -44,10 +44,32 @@
     </tr>
     <c:forEach items="${listGroups}" var="groups">
         <tr>
-            <td><a href="groups/${groups.groupId}">${groups.groupId}</a></td>
+            <td><a href="http://localhost:8080/springhibernateferdi/groups/${groups.groupId}">${groups.groupId}</a></td>
             <td>${groups.name}</td>
             <td>${groups.description}</td>
             <td>${groups.accessLevel}</td>
+        </tr>
+    </c:forEach>
+    </table>
+</c:if>
+<c:if test="${!empty listUserById}">
+    <table class="tg">
+    <tr>
+        <th width="100">Userid</th>
+        <th width="100">Username</th>
+        <th width="100">Name</th>
+        <th width="100">Last name</th>
+        <th width="100">Email</th>
+        <th width="100">Password</th>
+    </tr>
+    <c:forEach items="${listUserById}" var="userByG">
+        <tr>
+            <td>${userByG.userId}</td>
+            <td>${userByG.userName}</td>
+            <td>${userByG.name}</td>
+            <td>${userByG.lastName}</td>
+            <td>${userByG.eMail}</td>
+            <td>${userByG.passWord}</td>
         </tr>
     </c:forEach>
     </table>

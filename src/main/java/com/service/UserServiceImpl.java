@@ -34,10 +34,4 @@ public class UserServiceImpl implements UserService {
 	public void removeUser(int id) {
 		this.userDAO.removeUser(id);
 	}
-
-	public List<User> listUserbyId(int _id) {
-		return this.userDAO.listUserById(_id);
-	}
-	
-
 }
