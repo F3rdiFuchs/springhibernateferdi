@@ -10,7 +10,7 @@
 	</head> 
 	<body>
 		<h1>Add user:</h1>
-		<form id="adduser" name="adduser" action="POST">
+		<form modelAttribute="employee" method="POST">
 		<div>
 		  <label for="absender">Username:</label>
 		  <input type="text" id="username" name="username" />
