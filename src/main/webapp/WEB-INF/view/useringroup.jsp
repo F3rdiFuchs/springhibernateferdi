@@ -6,11 +6,11 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>Welcome</title>
+		<title>User in Group</title>
 	</head> 
 	<body>
 		<h1>Userlist:</h1>
-		<c:if test="${!empty listUser}">
+		<c:if test="${!empty listUserById}">
     <table class="tg">
     <tr>
         <th width="100">Userid</th>
@@ -19,23 +19,19 @@
         <th width="100">Last name</th>
         <th width="100">Email</th>
         <th width="100">Password</th>
-        <th width="100">Groupid</th>
     </tr>
-    <c:forEach items="${listUser}" var="user">
+    <c:forEach items="${listUserById}" var="userByG">
         <tr>
-            <td>${user.userId}</td>
-            <td>${user.userName}</td>
-            <td>${user.name}</td>
-            <td>${user.lastName}</td>
-            <td>${user.eMail}</td>
-            <td>${user.passWord}</td>
-            <td>${user.groupId}</td>
+            <td>${userByG.userId}</td>
+            <td>${userByG.userName}</td>
+            <td>${userByG.name}</td>
+            <td>${userByG.lastName}</td>
+            <td>${userByG.eMail}</td>
+            <td>${userByG.passWord}</td>
         </tr>
     </c:forEach>
     </table>
 </c:if>
-<a href="http://localhost:8080/springhibernateferdi">back</a>
-<br><a href="http://localhost:8080/springhibernateferdi/addUser">new user</a>
-
+<br><a href="http://localhost:8080/springhibernateferdi">back</a>
 	</body>
 </html>

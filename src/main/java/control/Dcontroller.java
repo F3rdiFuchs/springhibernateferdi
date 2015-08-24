@@ -1,5 +1,7 @@
 package control;
 
+import java.security.Provider.Service;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -56,7 +58,7 @@ public class Dcontroller {
 	{
 		_model.addAttribute("groups", new Groups());
 		_model.addAttribute("listGroups", this.groupsService.listGroup());
-		return "user";
+		return "groups";
 	}
 	
 	@RequestMapping(value = "/groups/{id}", method = RequestMethod.GET)
@@ -64,7 +66,22 @@ public class Dcontroller {
 	{
 		_model.addAttribute("user", new User());
 		_model.addAttribute("listUserById", this.groupsService.listUserInGroup(id));
-		return "user";
+		return "useringroup";
+	}
+	
+	@RequestMapping(value = "/addUser", method = RequestMethod.GET)
+	public String addUser(Model _model)
+	{
+		User newuser = new User();
+		_model.addAttribute("adduser",newuser);
+		_model.addAttribute("edit",false);
+		return "adduser";
+	}
+	@RequestMapping(value = "/addUser", method = RequestMethod.POST)
+	public String saveUser(User _user)
+	{
+		this.userService.addUser(_user);
+		return null;
 	}
 	
 }
