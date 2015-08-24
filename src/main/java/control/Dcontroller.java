@@ -77,7 +77,15 @@ public class Dcontroller {
 	public String saveUser(User adduser)
 	{
 		this.userService.addUser(adduser);
-		return "adduser";
+		return "redirect:/users";
 	}
+	
+	@RequestMapping(value = "/delete/{userid}", method = RequestMethod.GET)	
+	private String deletUser(@PathVariable String userid)
+	{
+		this.userService.removeUser(userid);
+		return "redirect:/users";
+	}
+	
 	
 }

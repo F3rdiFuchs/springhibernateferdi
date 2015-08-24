@@ -31,8 +31,12 @@
 		  <label for="absender">Passoword:</label>
 		  <input type="password" id="passWord" name="passWord" />
 		</div>
+		<div>
+		  <label for="absender">Userid</label>
+		  <label for="absender">Will be set by the administrator later...</label>
+		</div>
 		  <input type="submit" value="save" />
 		</div>
-		</form>
+		</form><br><br><a href="http://localhost:8080/springhibernateferdi">back</a>
 	</body>
 </html>

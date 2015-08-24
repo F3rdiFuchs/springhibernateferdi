@@ -20,6 +20,7 @@
         <th width="100">Email</th>
         <th width="100">Password</th>
         <th width="100">Groupid</th>
+        <th width="100"></th>
     </tr>
     <c:forEach items="${listUser}" var="user">
         <tr>
@@ -30,6 +31,7 @@
             <td>${user.eMail}</td>
             <td>${user.passWord}</td>
             <td>${user.groupId}</td>
+            <td><a href="http://localhost:8080/springhibernateferdi/delete/${user.userId}">delete</a></td>
         </tr>
     </c:forEach>
     </table>

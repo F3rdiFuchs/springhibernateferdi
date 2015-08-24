@@ -1,9 +1,9 @@
 package com.model;
 
-import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.hibernate.Query;
 import java.util.List;
 
 public class UserDAOImpl implements UserDAO {
@@ -16,8 +16,12 @@ public class UserDAOImpl implements UserDAO {
 	
 	public void addUser(User user)
 	{
+		user.setGroupId(0);
 		Session session = this.m_sessionFactory.openSession();
+		session.beginTransaction();
 		session.persist(user);
+		session.getTransaction().commit();
+		session.close();
 	}
 	
 	@SuppressWarnings("unchecked") 
@@ -43,13 +47,12 @@ public class UserDAOImpl implements UserDAO {
 		
 	}
 
-	public void removeUser(int userId) {
+	public void removeUser(String uId) {
 		Session session = this.m_sessionFactory.openSession();
 		session.beginTransaction();
-		User user = (User) session.load(User.class, new Integer(userId));
-		if(null != user){
-            session.delete(user);
-        }
+		Query query = session.createQuery("DELETE FROM User WHERE userid = :uId");
+		query.setString("uId", uId);
+		query.executeUpdate();
 		session.getTransaction().commit();
 		session.close();
 		
@@ -67,6 +70,5 @@ public class UserDAOImpl implements UserDAO {
 		session.close();
 		return userList;
 	}
-
 
 }
