@@ -64,7 +64,7 @@ public class Dcontroller {
 		return "useringroup";
 	}
 	
-	@RequestMapping(value = "/addUser", method = RequestMethod.GET)
+	@RequestMapping(value = "/new", method = RequestMethod.GET)
 	public String addUser(Model _model)
 	{
 		User newuser = new User();
@@ -72,11 +72,12 @@ public class Dcontroller {
 		_model.addAttribute("edit",false);
 		return "adduser";
 	}
-	@RequestMapping(value = "/addUser", method = RequestMethod.POST)
-	public String saveUser(User _user, BindingResult result, Model _model)
+	
+	@RequestMapping(value = "/new", method = RequestMethod.POST)
+	public String saveUser(User adduser)
 	{
-		this.userService.addUser(_user);
-		return null;
+		this.userService.addUser(adduser);
+		return "adduser";
 	}
 	
 }

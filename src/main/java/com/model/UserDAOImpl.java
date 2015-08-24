@@ -14,13 +14,10 @@ public class UserDAOImpl implements UserDAO {
 		this.m_sessionFactory = _sessionFactory;
 	}
 	
-	public void addUser(User _user)
+	public void addUser(User user)
 	{
 		Session session = this.m_sessionFactory.openSession();
-		Transaction tx = session.beginTransaction();
-		session.persist(_user);
-        tx.commit();
-        session.close();
+		session.persist(user);
 	}
 	
 	@SuppressWarnings("unchecked") 
@@ -37,19 +34,19 @@ public class UserDAOImpl implements UserDAO {
 		return userList;
 	}
 	
-	public void updateUser(User _user) {
+	public void updateUser(User user) {
 		Session session = this.m_sessionFactory.openSession();
 		Transaction tx = session.beginTransaction();
-		session.update(_user);
+		session.update(user);
 		tx.commit();
 		session.close();
 		
 	}
 
-	public void removeUser(int _userId) {
+	public void removeUser(int userId) {
 		Session session = this.m_sessionFactory.openSession();
 		session.beginTransaction();
-		User user = (User) session.load(User.class, new Integer(_userId));
+		User user = (User) session.load(User.class, new Integer(userId));
 		if(null != user){
             session.delete(user);
         }
@@ -59,11 +56,11 @@ public class UserDAOImpl implements UserDAO {
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<User> listUserById(int _id) {
+	public List<User> listUserById(int id) {
 		Session session = this.m_sessionFactory.openSession();
 		session.beginTransaction();
 		
-		List<User> userList = (List<User>) session.createQuery("FROM User WHERE groups_groupid = :_id").list();
+		List<User> userList = (List<User>) session.createQuery("FROM User WHERE groups_groupid = :id").list();
 		session.getTransaction().commit();
 		
 		

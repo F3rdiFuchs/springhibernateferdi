@@ -35,7 +35,7 @@
     </table>
 </c:if>
 <a href="http://localhost:8080/springhibernateferdi">back</a>
-<br><a href="http://localhost:8080/springhibernateferdi/addUser">new user</a>
+<br><a href="http://localhost:8080/springhibernateferdi/new">new user</a>
 
 	</body>
 </html>
