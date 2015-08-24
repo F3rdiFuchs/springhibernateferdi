@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.model.UserDAOImpl;
 import com.service.GroupsService;
@@ -59,9 +60,11 @@ public class Dcontroller {
 	}
 	
 	@RequestMapping(value = "/groups/{id}", method = RequestMethod.GET)
-	public String listUserInGroup(int _id)
+	public  @ResponseBody String listUserInGroup (@PathVariable(value="id")int _id, Model _model)
 	{
-		
+		_model.addAttribute("user", new User());
+		_model.addAttribute("listUser", this.userService.listUserbyId(_id));
+		return "user";
 	}
 	
 }

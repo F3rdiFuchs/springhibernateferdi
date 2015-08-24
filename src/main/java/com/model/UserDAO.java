@@ -7,5 +7,6 @@ public interface UserDAO {
 	public void addUser(User _user);
 	public void updateUser(User _user);
 	public List <User> listUser();
+	public List <User> listUserById(int _id);
 	public void removeUser(int _userId);
 }

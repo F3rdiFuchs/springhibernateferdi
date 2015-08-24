@@ -44,7 +44,7 @@
     </tr>
     <c:forEach items="${listGroups}" var="groups">
         <tr>
-            <td>${groups.groupId}</td>
+            <td><a href="groups/${groups.groupId}">${groups.groupId}</a></td>
             <td>${groups.name}</td>
             <td>${groups.description}</td>
             <td>${groups.accessLevel}</td>

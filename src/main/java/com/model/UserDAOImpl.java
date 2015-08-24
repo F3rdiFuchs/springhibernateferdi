@@ -58,4 +58,18 @@ public class UserDAOImpl implements UserDAO {
 		
 	}
 
+	@SuppressWarnings("unchecked")
+	public List<User> listUserById(int _id) {
+		Session session = this.m_sessionFactory.openSession();
+		session.beginTransaction();
+		
+		List<User> userList = (List<User>) session.createQuery("FROM User WHERE groups_groupid = :_id").list();
+		session.getTransaction().commit();
+		
+		
+		session.close();
+		return userList;
+	}
+
+
 }
