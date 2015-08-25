@@ -4,6 +4,7 @@ package com.model;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import org.hibernate.validator.constraints.Email;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 public class User {
@@ -21,6 +22,7 @@ public class User {
 	
 	@NotNull
 	@Size(max=45)
+	@Email
 	private String 		eMail;
 	
 	@NotNull
