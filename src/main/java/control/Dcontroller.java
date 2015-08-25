@@ -4,9 +4,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+
 import com.service.GroupsService;
 import com.service.UserService;
 import com.model.Groups;
@@ -14,9 +18,15 @@ import com.model.Tasks;
 import com.model.User;
 
 @Controller
-public class Dcontroller {
+public class Dcontroller extends WebMvcConfigurerAdapter {
 	private UserService 	userService;
 	private GroupsService 	groupsService;
+	
+	@Override
+	public void addViewControllers(ViewControllerRegistry registry) {
+        registry.addViewController("/results").setViewName("results");
+    }
+	
 	
 	public UserService getUserService() {
 		return userService;
@@ -74,8 +84,12 @@ public class Dcontroller {
 	}
 	
 	@RequestMapping(value = "/new", method = RequestMethod.POST)
-	public String saveUser(User adduser)
+	public String saveUser(User adduser, BindingResult result)
 	{
+		if (result.hasErrors()) {
+            return "adduser";
+        }
+		
 		this.userService.addUser(adduser);
 		return "redirect:/users";
 	}

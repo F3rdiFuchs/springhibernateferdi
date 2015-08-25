@@ -9,6 +9,7 @@ import java.util.List;
 
 public class UserDAOImpl implements UserDAO {
 	private SessionFactory m_sessionFactory;
+	private static final int AUTO_GROUPID = 25;
 	
 	public UserDAOImpl(SessionFactory _sessionFactory)
 	{
@@ -17,7 +18,7 @@ public class UserDAOImpl implements UserDAO {
 	
 	public void addUser(User user)
 	{
-		user.setGroupId(0);
+		user.setGroupId(AUTO_GROUPID);
 		user.encryptPasswd();
 		Session session = this.m_sessionFactory.openSession();
 		session.beginTransaction();
