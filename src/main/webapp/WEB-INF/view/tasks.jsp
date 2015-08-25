@@ -10,18 +10,18 @@
 	</head> 
 	<body>
 		<h1>Tasklist:</h1>
-		<c:if test="${!empty listTask}">
-    <table class="tg">
+		<c:if test="${!empty listTasks}">
+    <table border="1" class="tg">
     <tr>
-        <th width="100">Taskid</th>
-        <th width="100">Description</th>
-        <th width="100">Start</th>
-        <th width="100">End</th>
-        <th width="100">Status</th>
+        <td>Taskid</td>
+        <td>Description</td>
+        <td>Start</td>
+        <td>End</td>
+        <td>Status</td>
     </tr>
-    <c:forEach items="${listTask}" var="tasks">
+    <c:forEach items="${listTasks}" var="tasks">
         <tr>
-            <td>${tasks.taskid}</td>
+            <td>${tasks.taskId}</td>
             <td>${tasks.description}</td>
             <td>${tasks.start}</td>
             <td>${tasks.end}</td>
@@ -31,7 +31,6 @@
     </table>
 </c:if>
 <a href="http://localhost:8080/springhibernateferdi">back</a>
-<br><a href="http://localhost:8080/springhibernateferdi/new">new user</a>
 
 	</body>
 </html>

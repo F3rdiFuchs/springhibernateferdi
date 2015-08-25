@@ -1,6 +1,5 @@
 package com.model;
 
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;

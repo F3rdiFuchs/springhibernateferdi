@@ -8,15 +8,15 @@ import org.hibernate.Transaction;
 
 public class TasksDAOImpl implements TasksDAO {
 
-	private SessionFactory m_sessionFactory;
+	private SessionFactory sessionFactory;
 	
 	public TasksDAOImpl(SessionFactory _sessionFactory)
 	{
-		this.m_sessionFactory = _sessionFactory;
+		this.sessionFactory = _sessionFactory;
 	}
-
+	
 	public void save(Tasks _task) {
-		Session session = this.m_sessionFactory.openSession();
+		Session session = this.sessionFactory.openSession();
 		Transaction tx = session.beginTransaction();
 		session.persist(_task);
         tx.commit();
@@ -24,14 +24,14 @@ public class TasksDAOImpl implements TasksDAO {
 		
 	}
 
-	public List<Tasks> list() {
-		Session session = this.m_sessionFactory.openSession();
+	public List<Tasks> listTasks() {
+		Session session = this.sessionFactory.openSession();
 		session.beginTransaction();
 		
-		List<Tasks> taskList = session.createQuery("FROM Tasks").list();
+		List<Tasks> tasksList = session.createQuery("FROM Tasks").list();
+		
 		session.getTransaction().commit();
 		session.close();
-		return taskList;
+		return tasksList;
 	}
-
 }

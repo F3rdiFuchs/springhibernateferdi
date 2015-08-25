@@ -34,6 +34,7 @@ public class GroupsDAOImpl implements GroupsDAO {
 		session.close();
 		return groupList;
 	}
+	
 	public void updateGroup(Groups _group) {
 		Session session = this.m_sessionFactory.openSession();
 		Transaction tx = session.beginTransaction();
