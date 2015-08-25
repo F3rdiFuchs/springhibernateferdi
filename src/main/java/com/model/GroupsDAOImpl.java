@@ -54,6 +54,7 @@ public class GroupsDAOImpl implements GroupsDAO {
 		session.close();
 	}
 	
+	
 	@SuppressWarnings("unchecked")
 	public List<User> listUserInGroup(int id) {
 		Session session = this.m_sessionFactory.openSession();

@@ -17,7 +17,6 @@ public class UserDAOImpl implements UserDAO {
 	
 	public void addUser(User user)
 	{
-		user.setGroupId(AUTO_GROUPID);
 		user.encryptPasswd();
 		Session session = this.m_sessionFactory.openSession();
 		session.beginTransaction();

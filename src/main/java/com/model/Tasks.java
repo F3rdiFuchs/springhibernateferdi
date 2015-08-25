@@ -1,11 +1,15 @@
 package com.model;
 
+import java.util.List;
+
 public class Tasks {
 	private Integer taskId;
 	private String description;
 	private String start;
 	private String end;
 	private Boolean status;
+	private List <User> userTask;
+	
 	
 	public Integer getTaskId() {
 		return taskId;

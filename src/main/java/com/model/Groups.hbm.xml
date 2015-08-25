@@ -15,7 +15,7 @@
 	        <property name="description" column="description" type="string" />
 	        <property name="accessLevel" column="accessLevel" type="int"/>
 	        
-	        <set name="employee" table="employee" inverse="true" lazy="true" fetch="select">
+	        <set name="groupId" table="groupId" inverse="true" lazy="true" fetch="select">
 	        	<key>
 	        		<column name="userid" not-null="true"/>
 	        	</key>

@@ -73,14 +73,6 @@ public class Dcontroller {
 		return "groups";
 	}
 	
-	@RequestMapping(value = "/tasks", method = RequestMethod.GET)
-	public String listTasks(Model _model)
-	{
-		_model.addAttribute("tasks", new Tasks());
-		_model.addAttribute("listTasks", this.tasksService.listTasks());
-		_model.addAttribute("userInTaskList", this.tasksService.listUserInTask(2));
-		return "tasks";
-	}
 	
 	@RequestMapping(value = "/groups/{id}", method = RequestMethod.GET)
 	public String listUserInGroup (@PathVariable int id, Model _model)
@@ -116,5 +108,14 @@ public class Dcontroller {
 	{
 		this.userService.removeUser(userid);
 		return "redirect:/users";
-	}	
+	}
+	
+	@RequestMapping(value = "/tasks", method = RequestMethod.GET)
+	public String listTasks(Model _model)
+	{
+		_model.addAttribute("tasks", new Tasks());
+		_model.addAttribute("listTasks", this.tasksService.listTasks());
+		
+		return "tasks";
+	}
 }
