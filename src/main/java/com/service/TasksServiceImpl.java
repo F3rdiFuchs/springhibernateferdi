@@ -33,8 +33,7 @@ public class TasksServiceImpl implements TasksService{
 	}
 
 	public List<User> listUserInTask(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		return tasksDAO.listUserInTask(id);
 	}
 
 	public void removeTasks(int id) {

@@ -18,6 +18,7 @@
         <td>Start</td>
         <td>End</td>
         <td>Status</td>
+        <td>Appointees</td>
     </tr>
     <c:forEach items="${listTasks}" var="tasks">
         <tr>
@@ -26,6 +27,7 @@
             <td>${tasks.start}</td>
             <td>${tasks.end}</td>
             <td>${tasks.status}</td>
+            <td><c:forEach items="${userInTaskList }">${ user.userName}</c:forEach></td>
         </tr>
     </c:forEach>
     </table>

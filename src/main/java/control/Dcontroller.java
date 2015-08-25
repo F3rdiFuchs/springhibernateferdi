@@ -78,6 +78,7 @@ public class Dcontroller {
 	{
 		_model.addAttribute("tasks", new Tasks());
 		_model.addAttribute("listTasks", this.tasksService.listTasks());
+		_model.addAttribute("userInTaskList", this.tasksService.listUserInTask(2));
 		return "tasks";
 	}
 	
