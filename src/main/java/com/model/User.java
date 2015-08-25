@@ -8,10 +8,23 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 public class User {
 	private Integer 	userId;
+	
+	@NotNull
+	@Size(min=5, max=15, message="Must be between 5 and 15 letters")
 	private String		userName;
+	
+	@Size(max=15)
 	private String 		name;
+	
+	@Size(max=15)
 	private String 		lastName;
+	
+	@NotNull
+	@Size(max=45)
 	private String 		eMail;
+	
+	@NotNull
+	@Size(max=150)
 	private String 		passWord;
 	private Integer 	groupId;
 	
@@ -26,8 +39,7 @@ public class User {
 	public String getUserName() {
 		return userName;
 	}
-	@NotNull
-	@Size(min=5, max=15)
+	
 	public void setUserName(String userName) {
 		this.userName = userName;
 	}
@@ -35,7 +47,7 @@ public class User {
 		return name;
 	}
 	
-	@Size(max=15)
+	
 	public void setName(String name) {
 		this.name = name;
 	}
@@ -43,7 +55,7 @@ public class User {
 		return lastName;
 	}
 	
-	@Size(max=15)
+	
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
@@ -51,8 +63,7 @@ public class User {
 		return eMail;
 	}
 	
-	@NotNull
-	@Size(max=45)
+	
 	public void seteMail(String eMail) {
 		this.eMail = eMail;
 	}
@@ -60,8 +71,7 @@ public class User {
 		return passWord;
 	}
 	
-	@NotNull
-	@Size(max=150)
+	
 	public void setPassWord(String passWord) {
 		this.passWord = passWord;
 	}

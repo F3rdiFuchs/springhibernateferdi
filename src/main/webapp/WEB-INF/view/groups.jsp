@@ -10,12 +10,12 @@
 	</head> 
 	<body>
 		<c:if test="${!empty listGroups}">
-	    <table class="tg">
+	    <table border="1"class="tg">
 	    <tr>
-	        <th width="100">Groupid</th>
-	        <th width="100">Name</th>
-	        <th width="500">Description</th>
-	        <th width="100">Accesslevel</th>
+	        <td>Groupid</t>
+	        <td>Name</td>
+	        <td>Description</td>
+	        <td>Accesslevel</td>
 	    </tr>
 	    <c:forEach items="${listGroups}" var="groups">
 	        <tr>

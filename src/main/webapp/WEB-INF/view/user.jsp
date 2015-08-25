@@ -11,16 +11,16 @@
 	<body>
 		<h1>Userlist:</h1>
 		<c:if test="${!empty listUser}">
-    <table class="tg">
+    <table border ="1" class="tg">
     <tr>
-        <th width="100">Userid</th>
-        <th width="100">Username</th>
-        <th width="100">Name</th>
-        <th width="100">Last name</th>
-        <th width="100">Email</th>
-        <th width="100">Password</th>
-        <th width="100">Groupid</th>
-        <th width="100"></th>
+        <td>Userid</td>
+        <td>Username</td>
+        <td>Name</td>
+        <td>Last name</td>
+        <td>Email</td>
+        <td>Password</td>
+        <td>Groupid</td>
+        <td></th>
     </tr>
     <c:forEach items="${listUser}" var="user">
         <tr>

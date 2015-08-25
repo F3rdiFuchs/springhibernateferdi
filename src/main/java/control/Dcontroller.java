@@ -1,5 +1,8 @@
 package control;
 
+
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -84,7 +87,7 @@ public class Dcontroller extends WebMvcConfigurerAdapter {
 	}
 	
 	@RequestMapping(value = "/new", method = RequestMethod.POST)
-	public String saveUser(User adduser, BindingResult result)
+	public String saveUser(@Valid User adduser, BindingResult result)
 	{
 		if (result.hasErrors()) {
             return "adduser";

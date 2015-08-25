@@ -9,35 +9,42 @@
 	</head> 
 	<body>
 		<h1>Add user:</h1>
-		<form method="POST">
-		<div>
-		  <label for="absender">Username:</label>
-		  <input type="text" id="userName" name="userName" />
-
-		</div>
-		<div>
-		  <label for="absender">Name:</label>
-		  <input type="text" id="name" name="name" />
-		</div>
-		<div>
-		  <label for="absender">Last name:</label>
-		  <input type="text" id="lastName" name="lastName" />
-		</div>
-		<div>
-		  <label for="absender">E-Mail::</label>
-		  <input type="text" id="eMail" name="eMail" />
-		</div>
-		<div>
-		<div>
-		  <label for="absender">Passoword:</label>
-		  <input type="password" id="passWord" name="passWord" />
-		</div>
-		<div>
-		  <label for="absender">Userid</label>
-		  <label for="absender">Will be set by the administrator later...</label>
-		</div>
-		  <input type="submit" value="save" />
-		</div>
+		<form:form method="POST">
+		<table>
+		<tr>
+			<td>Username:</td>
+		  	<td><input type="text" id="userName" name="userName"></td>
+		  	<td><form:errors path="userName"/></td>
+		</tr>
+		<tr>
+		  <td>Name:</td>
+		  <td><input type="text" id="name" name="name" /></td>
+		  <td></td>
+		</tr>
+		<tr>
+		  <td>Last name:</td>
+		  <td><input type="text" id="lastName" name="lastName" /></td>
+		  <td></td>
+		</rt>
+		<tr>
+		  <td>E-Mail:</td>
+		  <td><input type="text" id="eMail" name="eMail" /></td>
+		  <td></td>
+		</tr>
+		<tr>
+		<tr>
+		  <td>Passoword:</td>
+		  <td><input type="password" id="passWord" name="passWord" /></td>
+		  <td></td>
+		</tr>
+		<tr>
+		  <td>Userid</td>
+		  <td>Will be set by the administrator later...</td>
+		  <td></td>
+		</tr>
+		  <td><input type="submit" value="save" /></td>
+		</tr>
+		</table>
 		</form><br><br><a href="http://localhost:8080/springhibernateferdi">back</a>
 	</body>
 </html>
