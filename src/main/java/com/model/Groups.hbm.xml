@@ -14,6 +14,11 @@
 	        <property name="name" 		column="name" type="string" />
 	        <property name="description" column="description" type="string" />
 	        <property name="accessLevel" column="accessLevel" type="int"/>
-	        <many-to-one name="user" class="com.model.User" column="USERID"></many-to-one>
+	        
+	     	<array name="user" table="user" inverse="false" cascade="all">
+	     		<key column="groupid"/>
+	     		<list-index column="userid" />
+	     		<one-to-many class="com.model.User"/>
+	     	</array>
    		 </class> 
 </hibernate-mapping>
