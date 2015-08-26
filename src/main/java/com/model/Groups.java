@@ -3,30 +3,42 @@ package com.model;
 import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
+import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
+@Entity
+@Table(name="GROUPS")
 public class Groups {
 	@Id
-    @Column(name="groupId")
+    @Column(name="GROUPID")
 	private Integer groupId;
 	
-	@Column(name="name")
+	@Column(name="NAME")
 	private String name;
 	
-	@Column(name="description")
+	@Column(name="DESCRIPTION")
 	private String description;
 	
-	@Column(name="accessLevel")
+	@Column(name="ACCESSLEVEL")
 	private Integer accessLevel;
 	
-	@OneToMany(cascade={CascadeType.ALL})
-    @JoinColumn(name="groupid")
-	private List<User> user;
+	@OneToMany(cascade = CascadeType.ALL)
+	@JoinColumn(name="USERID")
+	private User user;
 
-	
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
 	public Integer getGroupId() {
 		return groupId;
 	}
@@ -57,14 +69,6 @@ public class Groups {
 
 	public void setAccessLevel(Integer accessLevel) {
 		this.accessLevel = accessLevel;
-	}
-
-	public List<User> getUser() {
-		return user;
-	}
-
-	public void setUser(List<User> user) {
-		this.user = user;
 	}
 
 	

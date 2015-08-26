@@ -5,21 +5,15 @@
         
         <hibernate-mapping package="com.model">
 	    	
-	    	<class name="Groups" table="groups">
+	    	<class name="Groups" table="groups" lazy="false">
 	        	
-	        	<id name="groupId" type="int" column="groupid">
+	        	<id name="groupId" type="int" column="groupId">
 	            	<generator class="native"/>
 	        	</id>
 	        	
 	        <property name="name" 		column="name" type="string" />
 	        <property name="description" column="description" type="string" />
 	        <property name="accessLevel" column="accessLevel" type="int"/>
-	        
-	        <set name="user" table="user" inverse="true" lazy="true" fetch="select">
-	        	<key>
-	        		<column name="userid" not-null="true"/>
-	        	</key>
-	        	<one-to-many class="User" />
-	        </set>
+	        <many-to-one name="user" class="com.model.User" column="USERID"></many-to-one>
    		 </class> 
 </hibernate-mapping>

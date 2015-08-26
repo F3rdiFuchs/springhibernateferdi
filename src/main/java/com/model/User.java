@@ -2,57 +2,81 @@ package com.model;
 
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.Email;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
+@Entity
+@Table(name="USER")
 public class User {
 	private static final int PASSWORD_SECURITY = 2;
 	
 	@Id
     @GeneratedValue
-    @Column(name="userId")
+    @Column(name="USERID")
 	private Integer userId;
 	
 	@NotNull
 	@Size(min=5, max=15, message="Must be between 5 and 15 letters")
-	@Column(name="userName")
+	@Column(name="USERNAME")
 	private String userName;
 	
 	@Size(max=15)
-	@Column(name="name")
+	@Column(name="NAME")
 	private String name;
 	
 	@Size(max=15)
-	@Column(name="lastName")
+	@Column(name="LASTNAME")
 	private String lastName;
 	
 	@NotNull
 	@Size(max=45)
 	@Email
-	@Column(name="eMail")
+	@Column(name="EMAIL")
 	private String eMail;
 	
 	@NotNull
 	@Size(max=150)
-	@Column(name="passWord")
+	@Column(name="PASSWORD")
 	private String passWord;
 	
+	@NotNull
+	private Integer userGroupId;
+	
 	@ManyToOne
-	@JoinColumn(name="groupId", insertable=false, updatable=false, nullable=false)
-	private Integer groupId;
+	@JoinColumn(name="GROUPID")
+	private Groups groupId;
 	
 	
-	
+
+	public Integer getUserGroupId() {
+		return userGroupId;
+	}
+
+	public void setUserGroupId(Integer userGroupId) {
+		this.userGroupId = userGroupId;
+	}
+
+	public Groups getGroupId() {
+		return groupId;
+	}
+
+	public void setGroupId(Groups groupId) {
+		this.groupId = groupId;
+	}
+
 	public Integer getUserId() {
 		return userId;
 	}
+
 
 	public void setUserId(Integer userId) {
 		this.userId = userId;
@@ -98,13 +122,6 @@ public class User {
 		this.passWord = passWord;
 	}
 
-	public Integer getGroupId() {
-		return groupId;
-	}
-
-	public void setGroupId(Integer groupId) {
-		this.groupId = groupId;
-	}
 
 	public void encryptPasswd() {
 		int count = 0;
