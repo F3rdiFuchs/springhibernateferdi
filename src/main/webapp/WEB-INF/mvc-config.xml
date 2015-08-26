@@ -32,7 +32,6 @@
     		<list>
     			<value>com.model.User</value>
     			<value>com.model.Groups</value>
-    			<value>com.model.Tasks</value>
     		</list>
     	</property>
 	</bean>
@@ -48,11 +47,7 @@
         	<ref bean="sessionFactory" />
     	</constructor-arg>
 	</bean>
-	<bean id="tasksDAO" class="com.model.TasksDAOImpl">
-		<constructor-arg>
-        	<ref bean="sessionFactory" />
-    	</constructor-arg>
-	</bean>
+	
 	
 	<bean id="userService" class="com.service.UserServiceImpl">
 		<property name="userDAO" ref="userDAO"></property>
@@ -62,9 +57,6 @@
 		<property name="groupsDAO" ref="groupsDAO"></property>
 	</bean>
 	
-	<bean id="tasksService" class="com.service.TasksServiceImpl">
-		<property name="tasksDAO" ref="tasksDAO"></property>
-	</bean>
 	
 	
 </beans>

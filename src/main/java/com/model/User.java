@@ -46,7 +46,7 @@ public class User {
 	
 	@ManyToOne
 	@JoinColumn(name="groupId", insertable=false, updatable=false, nullable=false)
-	private Groups groupId;
+	private Integer groupId;
 	
 	
 	
@@ -98,11 +98,11 @@ public class User {
 		this.passWord = passWord;
 	}
 
-	public Groups getGroupId() {
+	public Integer getGroupId() {
 		return groupId;
 	}
 
-	public void setGroupId(Groups groupId) {
+	public void setGroupId(Integer groupId) {
 		this.groupId = groupId;
 	}
 

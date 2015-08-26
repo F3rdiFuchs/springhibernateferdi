@@ -17,6 +17,7 @@ public class TasksDAOImpl implements TasksDAO {
 	
 	public void save(Tasks _task) {
 		Session session = this.sessionFactory.openSession();
+		
 		Transaction tx = session.beginTransaction();
 		session.persist(_task);
         tx.commit();
