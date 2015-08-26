@@ -10,7 +10,6 @@ import javax.persistence.OneToMany;
 
 public class Groups {
 	@Id
-    @GeneratedValue
     @Column(name="groupId")
 	private Integer groupId;
 	
@@ -24,10 +23,9 @@ public class Groups {
 	private Integer accessLevel;
 	
 	@OneToMany(cascade={CascadeType.ALL})
-    @JoinColumn(name="groupId")
+    @JoinColumn(name="groupid")
 	private List<User> user;
 
-	
 	
 	public Integer getGroupId() {
 		return groupId;
@@ -68,6 +66,8 @@ public class Groups {
 	public void setUser(List<User> user) {
 		this.user = user;
 	}
+
+	
 
 	
 }

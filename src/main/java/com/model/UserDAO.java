@@ -4,9 +4,12 @@ import java.util.List;
 import com.model.User;
 
 public interface UserDAO {
-	public void addUser(User _user);
-	public void updateUser(User _user);
 	public List <User> listUser();
-	public List <User> listUserById(int _id);
-	public void removeUser(String _userId);
+	public List <User> listUserByGroupId(int groupId);
+	public void addUser(User user);
+	public void removeUser(Integer userId);
+	
+	public void updateUser(User user);
+	
+	
 }

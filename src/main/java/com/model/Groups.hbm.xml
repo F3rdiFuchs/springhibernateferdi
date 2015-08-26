@@ -11,11 +11,11 @@
 	            	<generator class="native"/>
 	        	</id>
 	        	
-	        <property name="name" column="name" type="string" />
+	        <property name="name" 		column="name" type="string" />
 	        <property name="description" column="description" type="string" />
 	        <property name="accessLevel" column="accessLevel" type="int"/>
 	        
-	        <set name="groupId" table="groupId" inverse="true" lazy="true" fetch="select">
+	        <set name="user" table="user" inverse="true" lazy="true" fetch="select">
 	        	<key>
 	        		<column name="userid" not-null="true"/>
 	        	</key>

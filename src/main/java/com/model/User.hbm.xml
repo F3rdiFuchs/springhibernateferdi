@@ -16,7 +16,7 @@
 	        <property name="lastName" column="lastname" type="string" />
 	        <property name="eMail" column="email" type="string"/>
 	        <property name="passWord" column="password" type="string"/>
-	        <property name="groupId" column="groupid" type="int"/>
+	        <property name="groupId" column="groupid"/>
    		 </class> 
 </hibernate-mapping>
         

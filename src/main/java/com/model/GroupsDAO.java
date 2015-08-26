@@ -3,9 +3,9 @@ package com.model;
 import java.util.List;
 
 public interface GroupsDAO {
-	public void addGroup(Groups _group);
-	public void updateGroup(Groups _group);
 	public List <Groups> listGroups();
-	public List<User> listUserInGroup(int _userid);
-	public void removeGroup(int _group);
+	public List<User> listUserInGroup(Integer userid);
+	public void addGroup(Groups group);
+	public void removeGroup(Integer group);
+	public void updateGroup(Groups group);	
 }

@@ -31,7 +31,7 @@ public class UserServiceImpl implements UserService {
 		return this.userDAO.listUser();
 	}
 
-	public void removeUser(String id) {
+	public void removeUser(Integer id) {
 		this.userDAO.removeUser(id);
 	}
 }

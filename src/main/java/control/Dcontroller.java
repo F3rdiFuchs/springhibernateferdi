@@ -41,8 +41,8 @@ public class Dcontroller {
 
 	@Autowired(required=true)
 	@Qualifier(value="userService")
-	public void setUserService(UserService _userService) {
-		this.userService = _userService;
+	public void setUserService(UserService userService) {
+		this.userService = userService;
 	}
 	
 	@RequestMapping(value = "/users", method = RequestMethod.GET)
@@ -92,10 +92,10 @@ public class Dcontroller {
 		return "redirect:/users";
 	}
 	
-	@RequestMapping(value = "/delete/{userid}", method = RequestMethod.GET)	
-	private String deletUser(@PathVariable String userid)
+	@RequestMapping(value = "/delete/{userId}", method = RequestMethod.GET)	
+	private String deletUser(@PathVariable Integer userId)
 	{
-		this.userService.removeUser(userid);
+		this.userService.removeUser(userId);
 		return "redirect:/users";
 	}
 	
