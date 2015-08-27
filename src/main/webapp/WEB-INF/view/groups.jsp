@@ -17,16 +17,15 @@
 	        <td>Name</td>
 	        <td>Description</td>
 	        <td>Accesslevel</td>
-	        <td>User</td>
+	        <td>User in this group</td>
 	    </tr>
 	    <c:forEach items="${listGroups}" var="groups">
 	        <tr>
-	            <td><a href="http://localhost:8080/springhibernateferdi/groups/${groups.groupId}">${groups.groupId}</a></td>
+	            <td>${groups.groupId}</td>
 	            <td>${groups.name}</td>
 	            <td>${groups.description}</td>
 	            <td>${groups.accessLevel}</td>
 	            <td>${groups.user}</td>
-	            <td></td>
 	        </tr>
 	    </c:forEach>
     </table>

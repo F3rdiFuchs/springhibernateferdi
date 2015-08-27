@@ -36,7 +36,6 @@ public class GroupsDAOImpl implements GroupsDAO {
 			*/
 			groupList = session.createQuery("FROM Groups g LEFT JOIN FETCH g.user").list();
 			
-		
 			session.getTransaction().commit();
 		}
 		catch(HibernateException e)
@@ -55,23 +54,9 @@ public class GroupsDAOImpl implements GroupsDAO {
 		
 	}
 	
-	
-	
 	public void updateGroup(Groups _group) {
 	}
 	public void removeGroup(Integer _groupid) {
 		
 	}
-	
-	
-	@SuppressWarnings("unchecked")
-	public List<User> listUserInGroup(Integer id) {
-		Session session = this.m_sessionFactory.openSession();
-		session.beginTransaction();
-		List<User> userInGroupList = session.createQuery("FROM User WHERE groups_groupid = '" + id + "'").list();
-		session.getTransaction().commit();
-		session.close();
-		return userInGroupList;
-	}
-	
 }

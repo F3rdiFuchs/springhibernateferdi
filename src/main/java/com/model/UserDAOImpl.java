@@ -13,7 +13,6 @@ import java.util.List;
 
 public class UserDAOImpl implements UserDAO {
 	private SessionFactory m_sessionFactory;
-	private static final int AUTO_GROUPID = 25;
 	
 	public UserDAOImpl(SessionFactory _sessionFactory)
 	{

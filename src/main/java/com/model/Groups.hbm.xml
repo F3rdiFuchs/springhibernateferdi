@@ -15,10 +15,9 @@
 	        <property name="description" column="description" type="string" />
 	        <property name="accessLevel" column="accessLevel" type="int"/>
 	        
-	     	<list name="user" table="user" inverse="false" cascade="all">
-	     		<key column="groupid"/>
-	     		<list-index column="userId" />
+	     	<bag name="user" table="user" inverse="false" cascade="all">
+	     		<key column="groupId"/>
 	     		<one-to-many class="com.model.User"/>
-	     	</list>
+	     	</bag>
    		 </class> 
 </hibernate-mapping>

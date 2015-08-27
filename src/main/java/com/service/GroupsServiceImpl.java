@@ -33,9 +33,4 @@ public class GroupsServiceImpl implements GroupsService {
 	public void removeGroups(int _id) {
 		this.groupsDAO.removeGroup(_id);
 	}
-
-	public List<User> listUserInGroup(int id) {
-		return this.groupsDAO.listUserInGroup(id);
-	}
-
 }
