@@ -9,6 +9,7 @@
 		<title>Groups</title>
 	</head> 
 	<body>
+		<h1>Grouplist:</h1>
 		<c:if test="${!empty listGroups}">
 	    <table border="1"class="tg">
 	    <tr>
@@ -16,6 +17,7 @@
 	        <td>Name</td>
 	        <td>Description</td>
 	        <td>Accesslevel</td>
+	        <td>User</td>
 	    </tr>
 	    <c:forEach items="${listGroups}" var="groups">
 	        <tr>
@@ -23,6 +25,8 @@
 	            <td>${groups.name}</td>
 	            <td>${groups.description}</td>
 	            <td>${groups.accessLevel}</td>
+	            <td>${groups.user}</td>
+	            <td></td>
 	        </tr>
 	    </c:forEach>
     </table>

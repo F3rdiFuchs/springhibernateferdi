@@ -21,57 +21,47 @@ public class User {
 	
 	@Id
     @GeneratedValue
-    @Column(name="USERID")
+    @Column(name="userId")
 	private Integer userId;
 	
 	@NotNull
 	@Size(min=5, max=15, message="Must be between 5 and 15 letters")
-	@Column(name="USERNAME")
+	@Column(name="userName")
 	private String userName;
 	
 	@Size(max=15)
-	@Column(name="NAME")
+	@Column(name="name")
 	private String name;
 	
 	@Size(max=15)
-	@Column(name="LASTNAME")
+	@Column(name="lastName")
 	private String lastName;
 	
 	@NotNull
 	@Size(max=45)
 	@Email
-	@Column(name="EMAIL")
+	@Column(name="eMail")
 	private String eMail;
 	
 	@NotNull
 	@Size(max=150)
-	@Column(name="PASSWORD")
+	@Column(name="passWord")
 	private String passWord;
 	
-	@NotNull
-	private Integer userGroupId;
-	
+
 	@ManyToOne
-	@JoinColumn(name="GROUPID")
-	private Groups groupId;
+	@JoinColumn(name="groupId", nullable=false)
+	private Groups groups;
 	
-	
-
-	public Integer getUserGroupId() {
-		return userGroupId;
+	public Groups getGroups() {
+		return groups;
 	}
 
-	public void setUserGroupId(Integer userGroupId) {
-		this.userGroupId = userGroupId;
+
+	public void setGroups(Groups groups) {
+		this.groups = groups;
 	}
 
-	public Groups getGroupId() {
-		return groupId;
-	}
-
-	public void setGroupId(Groups groupId) {
-		this.groupId = groupId;
-	}
 
 	public Integer getUserId() {
 		return userId;

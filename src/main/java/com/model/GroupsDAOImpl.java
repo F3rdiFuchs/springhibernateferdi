@@ -26,8 +26,17 @@ public class GroupsDAOImpl implements GroupsDAO {
 		try
 		{
 			session.beginTransaction();
+			/*
 			Criteria cr = session.createCriteria(Groups.class);
 			groupList = cr.list();
+			for(Groups user : (List<Groups>)groupList)
+			{
+				user.getUser().toArray();
+			}
+			*/
+			groupList = session.createQuery("FROM Groups g LEFT JOIN FETCH g.user").list();
+			
+		
 			session.getTransaction().commit();
 		}
 		catch(HibernateException e)

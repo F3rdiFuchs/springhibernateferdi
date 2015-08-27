@@ -5,7 +5,7 @@
         
         <hibernate-mapping package="com.model">
 	    	
-	    	<class name="Groups" table="groups" lazy="false">
+	    	<class name="Groups" table="groups">
 	        	
 	        	<id name="groupId" type="int" column="groupId">
 	            	<generator class="native"/>
@@ -15,10 +15,10 @@
 	        <property name="description" column="description" type="string" />
 	        <property name="accessLevel" column="accessLevel" type="int"/>
 	        
-	     	<array name="user" table="user" inverse="false" cascade="all">
+	     	<list name="user" table="user" inverse="false" cascade="all">
 	     		<key column="groupid"/>
-	     		<list-index column="userid" />
+	     		<list-index column="userId" />
 	     		<one-to-many class="com.model.User"/>
-	     	</array>
+	     	</list>
    		 </class> 
 </hibernate-mapping>

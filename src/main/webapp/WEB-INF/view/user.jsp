@@ -30,7 +30,7 @@
             <td>${user.lastName}</td>
             <td>${user.eMail}</td>
             <td>${user.passWord}</td>
-            <td>${user.userGroupId}</td>
+            <td></td>
             <td><a href="http://localhost:8080/springhibernateferdi/delete/${user.userId}">delete</a></td>
         </tr>
     </c:forEach>

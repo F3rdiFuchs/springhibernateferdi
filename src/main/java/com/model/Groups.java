@@ -1,6 +1,6 @@
 package com.model;
 
-import java.util.Set;
+import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -14,28 +14,27 @@ import javax.persistence.Table;
 @Table(name="GROUPS")
 public class Groups {
 	@Id
-    @Column(name="GROUPID")
+    @Column(name="groupId")
 	private Integer groupId;
 	
-	@Column(name="NAME")
+	@Column(name="name")
 	private String name;
 	
-	@Column(name="DESCRIPTION")
+	@Column(name="description")
 	private String description;
 	
-	@Column(name="ACCESSLEVEL")
+	@Column(name="accessLevel")
 	private Integer accessLevel;
 	
-	@OneToMany(cascade = CascadeType.ALL)
-	@JoinColumn(name="USERID")
-	private Set<User> user;
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "groups")
+	private List<User> user;
 
 	
-	public Set<User> getUser() {
+	public List<User> getUser() {
 		return user;
 	}
 
-	public void setUser(Set<User> user) {
+	public void setUser(List<User> user) {
 		this.user = user;
 	}
 
