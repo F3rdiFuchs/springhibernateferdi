@@ -21,18 +21,22 @@
 		<!-- Spring -->
 		<spring-framework.version>4.2.0.RELEASE</spring-framework.version>
 		
-		<!-- Spring Security -->
-		<hibernate-security.version>4.0.2.RELEASE</hibernate-security.version>
-
 		<!-- Hibernate / JPA -->
 		<hibernate.version>4.3.11.Final</hibernate.version>
-
+		<hibernate-security.version>4.0.2.RELEASE</hibernate-security.version>
+		<hibernate-validator.version>5.2.1.Final</hibernate-validator.version>
+		
 		<!-- Logging -->
 		<logback.version>1.0.13</logback.version>
 		<slf4j.version>1.7.5</slf4j.version>
 
 		<!-- Test -->
 		<junit.version>4.11</junit.version>
+		
+		<commons-dbcp.version>1.4</commons-dbcp.version>
+		
+		<!-- MySQL -->
+		<mysql-connector-java.version>5.1.36</mysql-connector-java.version>
 
 	</properties>
 	
@@ -69,11 +73,13 @@
 			<version>${jsp.version}</version>
 			<scope>provided</scope>
 		</dependency>
+		
 		<dependency>
-    		<groupId>javax.validation</groupId>
-    		<artifactId>validation-api</artifactId>
-    		<version>1.1.0.Final</version>
+			<groupId>javax.validation</groupId>
+			<artifactId>validation-api</artifactId>
+			<version>1.1.0.Final</version>
 		</dependency>
+
 	
 		<!-- Spring and Transactions -->
 		<dependency>
@@ -106,19 +112,21 @@
 		<dependency>
 		   <groupId>org.hibernate</groupId>
 		   <artifactId>hibernate-validator</artifactId>
-		   <version>5.2.1.Final</version>
+		   <version>${hibernate-validator.version}</version>
 		</dependency>
 
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
-			<version>5.1.36</version>
+			<version>${mysql-connector-java.version}</version>
 		</dependency>
+		
 		<dependency>
     		<groupId>org.apache.commons</groupId>
     		<artifactId>commons-dbcp2</artifactId>
-    	<version>2.0</version>
+    		<version>2.0</version>
 		</dependency>
+		
 		<!-- Test Artifacts -->
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -137,13 +145,15 @@
 		<dependency>
             <groupId>commons-dbcp</groupId>
             <artifactId>commons-dbcp</artifactId>
-            <version>1.4</version>
+            <version>${commons-dbcp.version}</version>
         </dependency>
+        
         <dependency>
-	<groupId>org.springframework.security</groupId>
-	<artifactId>spring-security-core</artifactId>
-	<version>${hibernate-security.version}</version>
-</dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-core</artifactId>
+			<version>${hibernate-security.version}</version>
+		</dependency>
+
 	</dependencies>	
 	
 </project>

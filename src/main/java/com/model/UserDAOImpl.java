@@ -13,6 +13,7 @@ import java.util.List;
 
 public class UserDAOImpl implements UserDAO {
 	private SessionFactory m_sessionFactory;
+	private static final int DEFAULT_GROUPID_USER = 25;
 	
 	public UserDAOImpl(SessionFactory _sessionFactory)
 	{
@@ -72,39 +73,29 @@ public class UserDAOImpl implements UserDAO {
 	{
 		user.encryptPasswd();
 		Session session = this.m_sessionFactory.openSession();
-		try
-		{
+		
 			session.beginTransaction();
+			
+			Groups group = (Groups)session.get(Groups.class, DEFAULT_GROUPID_USER);
+			user.setGroups(group);
+			
 			session.persist(user);
 			session.getTransaction().commit();
-		}
-		catch(HibernateException e)
-		{
-			e.printStackTrace();
-		}
-		finally
-		{
+		
 			session.close();
-		}
+		
 	}
 	
 	public void removeUser(Integer userId) {
 		Session session = this.m_sessionFactory.openSession();
 		session.beginTransaction();
-		try
-		{
-			User user = (User)session.get(User.class, userId);
-			session.delete(user);
-			session.getTransaction().commit();
-		}
-		catch(HibernateException e)
-		{
-			e.printStackTrace();
-		}
-		finally
-		{
-			session.close();
-		}
+		
+		User user = (User)session.get(User.class, userId);
+		session.delete(user);
+		session.getTransaction().commit();
+		
+		session.close();
+		
 	}
 
 

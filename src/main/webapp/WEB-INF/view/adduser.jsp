@@ -38,6 +38,8 @@
 					  <td>Will be set by the administrator later...</td>
 					  <td></td>
 				</tr>
+				
+				<tr>
 				  	  <td><input type="submit" value="save" /></td>
 				  	  <td></td>
 				  	  <td></td>
