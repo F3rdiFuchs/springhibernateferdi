@@ -12,7 +12,6 @@ public class TasksServiceImpl implements TasksService{
 	
 	public void addTasks(Tasks p) {
 		// TODO Auto-generated method stub
-		
 	}
 
 	public TasksDAO getTasksDAO() {
@@ -25,20 +24,14 @@ public class TasksServiceImpl implements TasksService{
 
 	public void updateTasks(Tasks p) {
 		// TODO Auto-generated method stub
-		
 	}
 
 	public List<Tasks> listTasks() {
 		return this.tasksDAO.listTasks();
 	}
 
-	public List<User> listUserInTask(int id) {
-		return tasksDAO.listUserInTask(id);
-	}
-
 	public void removeTasks(int id) {
 		// TODO Auto-generated method stub
-		
 	}
 
 }

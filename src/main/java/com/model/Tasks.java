@@ -2,13 +2,37 @@ package com.model;
 
 import java.util.List;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
+@Entity
+@Table(name="TASKS")
 public class Tasks {
+	
+	@Id
+    @GeneratedValue
+    @Column(name="taskId")
 	private Integer taskId;
+	
+	@Column(name="description")
+	@Size(max=150)
 	private String description;
+	
+	@Column(name="start")
+	@NotNull
 	private String start;
+	
+	@Column(name="end")
 	private String end;
+	
+	@NotNull
+	@Column(name="status")
 	private Boolean status;
-	private List <User> userTask;
 	
 	
 	public Integer getTaskId() {

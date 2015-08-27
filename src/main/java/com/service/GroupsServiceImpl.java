@@ -15,7 +15,6 @@ public class GroupsServiceImpl implements GroupsService {
 
 	public void updateGroup(Groups _group) {
 		this.groupsDAO.updateGroup(_group);
-		
 	}
 
 	public List<Groups> listGroup() {

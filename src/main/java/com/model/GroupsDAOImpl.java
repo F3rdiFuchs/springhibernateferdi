@@ -23,9 +23,7 @@ public class GroupsDAOImpl implements GroupsDAO {
 	{
 		List groupList = new ArrayList();
 		Session session = this.m_sessionFactory.openSession();
-		try
-		{
-			session.beginTransaction();
+		session.beginTransaction();
 			/*
 			Criteria cr = session.createCriteria(Groups.class);
 			groupList = cr.list();
@@ -34,29 +32,20 @@ public class GroupsDAOImpl implements GroupsDAO {
 				user.getUser().toArray();
 			}
 			*/
-			groupList = session.createQuery("FROM Groups g LEFT JOIN FETCH g.user").list();
+		groupList = session.createQuery("FROM Groups g LEFT JOIN FETCH g.user").list();
 			
-			session.getTransaction().commit();
-		}
-		catch(HibernateException e)
-		{
-			e.printStackTrace();
-		}
-		finally
-		{
-			session.close();
-		}
+		session.getTransaction().commit();
+		session.close();
+		
 		return groupList;
 	}
 	
-	public void addGroup(Groups _userGroup)
-	{
-		
+	public void addGroup(Groups _userGroup){
 	}
 	
 	public void updateGroup(Groups _group) {
 	}
-	public void removeGroup(Integer _groupid) {
-		
+	
+	public void removeGroup(Integer _groupid) {	
 	}
 }

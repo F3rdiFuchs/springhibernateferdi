@@ -20,7 +20,6 @@ public class UserDAOImpl implements UserDAO {
 		this.m_sessionFactory = _sessionFactory;
 	}
 	
-	
 	@SuppressWarnings("unchecked") 
 	public List<User> listUser()
 	{
@@ -30,30 +29,6 @@ public class UserDAOImpl implements UserDAO {
 		{
 			session.beginTransaction();
 			Criteria cr = session.createCriteria(User.class);
-			userList = cr.list();
-			session.getTransaction().commit();
-		}
-
-		catch(HibernateException e)
-		{
-			e.printStackTrace();
-		}
-		finally
-		{
-			session.close();
-		}
-		return userList;
-	}
-	
-	@SuppressWarnings("unchecked")
-	public List<User> listUserByGroupId(int groupId) {
-		List userList = new ArrayList();
-		Session session = this.m_sessionFactory.openSession();
-		try
-		{
-			session.beginTransaction();
-			Criteria cr = session.createCriteria(User.class);
-			cr.add(Restrictions.gt("groupid", groupId));
 			userList = cr.list();
 			session.getTransaction().commit();
 		}
@@ -83,7 +58,6 @@ public class UserDAOImpl implements UserDAO {
 			session.getTransaction().commit();
 		
 			session.close();
-		
 	}
 	
 	public void removeUser(Integer userId) {
@@ -97,11 +71,4 @@ public class UserDAOImpl implements UserDAO {
 		session.close();
 		
 	}
-
-
-	public void updateUser(User user) {
-		// TODO Auto-generated method stub
-		
-	}
-
 }

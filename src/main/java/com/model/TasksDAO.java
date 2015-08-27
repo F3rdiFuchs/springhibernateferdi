@@ -5,5 +5,4 @@ import java.util.List;
 public interface TasksDAO {
 	public void save(Tasks _task);
 	public List <Tasks> listTasks();
-	public List  <User> listUserInTask(int id);
 }

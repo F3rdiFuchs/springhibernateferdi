@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-    
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>   
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 
@@ -10,24 +9,24 @@
 	</head> 
 	<body>
 		<h1>Tasklist:</h1>
-		<c:if test="${!empty listTasks}">
-    <table border="1" class="tg">
-    <tr>
-        <td>Taskid</td>
-        <td>Description</td>
-        <td>Start</td>
-        <td>End</td>
-        <td>Status</td>
-        <td>Appointees</td>
-    </tr>
-    <c:forEach items="${listTasks}" var="tasks">
+		<c:if test="${!empty tasksList}">
+		    <table border="1" class="tg">
+		    <tr>
+		        <td>Taskid</td>
+		        <td>Description</td>
+		        <td>Start</td>
+		        <td>End</td>
+		        <td>Status</td>
+		        <td></td>
+		    </tr>
+    <c:forEach items="${tasksList}" var="tasks">
         <tr>
             <td>${tasks.taskId}</td>
             <td>${tasks.description}</td>
             <td>${tasks.start}</td>
             <td>${tasks.end}</td>
             <td>${tasks.status}</td>
-            <td><c:forEach items="${userInTaskList }">${ user.userName}</c:forEach></td>
+            <td><c:if test="${tasks.status ==false}"><input type="submit" value="completed" /></c:if></td>
         </tr>
     </c:forEach>
     </table>

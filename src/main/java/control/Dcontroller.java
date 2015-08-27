@@ -23,6 +23,7 @@ import com.model.User;
 public class Dcontroller {
 	private UserService 	userService;
 	private GroupsService 	groupsService;
+	private TasksService 	tasksService;
 	
 	public UserService getUserService() {
 		return userService;
@@ -32,6 +33,16 @@ public class Dcontroller {
 		return groupsService;
 	}
 
+
+	public TasksService getTasksService() {
+		return tasksService;
+	}
+
+	@Autowired(required=true)
+	@Qualifier(value="tasksService")
+	public void setTasksService(TasksService tasksService) {
+		this.tasksService = tasksService;
+	}
 
 	@Autowired(required=true)
 	@Qualifier(value="groupsService")
@@ -90,6 +101,15 @@ public class Dcontroller {
 		this.userService.removeUser(userId);
 		return "redirect:/users";
 	}
+	
+	@RequestMapping(value = "/tasks", method = RequestMethod.GET)	
+	private String listTasks(Model _model)
+	{
+		_model.addAttribute("tasks", new Tasks());
+		_model.addAttribute("tasksList", this.tasksService.listTasks());
+		return "tasks";
+	}
+	
 	
 
 }
