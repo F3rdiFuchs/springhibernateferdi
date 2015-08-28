@@ -10,12 +10,12 @@ public class TasksDAOImpl implements TasksDAO {
 
 	private SessionFactory sessionFactory;
 	
-	public TasksDAOImpl(SessionFactory _sessionFactory)
+	public TasksDAOImpl(SessionFactory sessionFactory)
 	{
-		this.sessionFactory = _sessionFactory;
+		this.sessionFactory = sessionFactory;
 	}
 	
-	public void save(Tasks _task) {
+	public void addTasks(Tasks _task) {
 		Session session = this.sessionFactory.openSession();
 		
 		Transaction tx = session.beginTransaction();

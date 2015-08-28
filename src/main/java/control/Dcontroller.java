@@ -110,6 +110,14 @@ public class Dcontroller {
 		return "tasks";
 	}
 	
+	@RequestMapping(value = "/tasks/add", method = RequestMethod.GET)	
+	private String addTasks(Model _model)
+	{
+		_model.addAttribute("tasks", new Tasks());
+		_model.addAttribute("tasksList", this.tasksService.listTasks());
+		return "tasks";
+	}
+	
 	
 
 }

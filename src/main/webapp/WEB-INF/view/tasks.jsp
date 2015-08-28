@@ -31,7 +31,7 @@
     </c:forEach>
     </table>
 </c:if>
-<a href="http://localhost:8080/springhibernateferdi">back</a>
+<a href="http://localhost:8080/springhibernateferdi">back</a><br><a href="http://localhost:8080/springhibernateferdi/tasks/add">add new task</a>
 
 	</body>
 </html>
