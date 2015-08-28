@@ -30,19 +30,10 @@ public class TasksDAOImpl implements TasksDAO {
 		Session session = this.sessionFactory.openSession();
 		session.beginTransaction();
 		
-		List<Tasks> tasksList = session.createQuery("FROM Tasks").list();
+		List<Tasks> tasksList = session.createQuery("FROM Tasks t JOIN FETCH t.user").list();
 		
 		session.getTransaction().commit();
 		session.close();
 		return tasksList;
-	}
-	@SuppressWarnings("unchecked")
-	public List<User> listUserInTask(int id) {
-		Session session = this.sessionFactory.openSession();
-		session.beginTransaction();
-		List<User> userInTaskList = session.createQuery("FROM User JOIN user_has_tasks ON user.userid = user_has_tasks.user_userid WHERE user_has_tasks.tasks_taskid= '" + id + "'").list();
-		session.getTransaction().commit();
-		session.close();
-		return userInTaskList;
 	}
 }

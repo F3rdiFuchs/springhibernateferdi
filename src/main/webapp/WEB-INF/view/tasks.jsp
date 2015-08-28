@@ -16,6 +16,7 @@
 		        <td>Description</td>
 		        <td>Start</td>
 		        <td>End</td>
+		        <td>Employee</td>
 		        <td>Status</td>
 		        <td></td>
 		    </tr>
@@ -25,6 +26,7 @@
             <td>${tasks.description}</td>
             <td>${tasks.start}</td>
             <td>${tasks.end}</td>
+            <td>${tasks.user}</td>
             <td>${tasks.status}</td>
             <td><c:if test="${tasks.status ==false}"><input type="submit" value="completed" /></c:if></td>
         </tr>

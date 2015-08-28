@@ -52,7 +52,6 @@ public class User {
 	@Column(name="passWord")
 	private String passWord;
 	
-
 	@ManyToOne
 	@JoinColumn(name="groupId", nullable=false)
 	private Groups groups;

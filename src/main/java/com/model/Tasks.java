@@ -40,7 +40,7 @@ public class Tasks {
 	private Boolean status;
 	
 	@ManyToMany(cascade = CascadeType.ALL)
-	@JoinTable(name="USER_TASKS", joinColumns = @JoinColumn(name = "taskId"),inverseJoinColumns = @JoinColumn(name = "userId"))
+	@JoinTable(name="USERTASKS", joinColumns = @JoinColumn(name = "taskId"),inverseJoinColumns = @JoinColumn(name = "userId"))
 	private List<User> user;
 	
 	
