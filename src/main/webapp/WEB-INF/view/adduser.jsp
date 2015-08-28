@@ -6,7 +6,7 @@
 	<body>
 		<h1>Add user:</h1>
 		<form method="POST">
-			<table>
+			<table border = "1">
 				<tr>
 					<td>Username:</td>
 				  	<td><input type="text" name="userName"/></td>

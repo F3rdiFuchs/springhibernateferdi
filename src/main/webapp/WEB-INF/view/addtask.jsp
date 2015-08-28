@@ -8,39 +8,42 @@
 		<form method="POST">
 			<table>
 				<tr>
-					<td>Username:</td>
-				  	<td><input type="text" name="userName"/></td>
+					<td>Description</td>
+				  	<td><input type="text" name="description"/></td>
 				  	<td></td>
 				</tr>
+				
 				<tr>
-					  <td>Name:</td>
-					  <td><input type="text" name="name" /></td>
-					  <td></td>
-				</tr>
-				<tr>
-					  <td>Last name:</td>
-					  <td><input type="text" name="lastName" /></td>
-					  <td></td>
-				</rt>
-				<tr>
-					  <td>E-Mail:</td>
-					  <td><input type="text" name="eMail" /></td>
-					  <td></td>
-				</tr>
-				<tr>
-				<tr>
-					  <td>Password:</td>
-					  <td><input type="password" name="passWord" /></td>
-					  <td></td>
-				</tr>
-				<tr>
-					  <td>Userid</td>
-					  <td>Will be set by the administrator later...</td>
+					  <td>Start:</td>
+					  <td><input type="text" name="start" /></td>
 					  <td></td>
 				</tr>
 				
 				<tr>
-				  	  <td><input type="submit" value="save" /></td>
+					  <td>End</td>
+					  <td><input type="text" name="end" /></td>
+					  <td></td>
+				</tr>
+				
+	
+				<tr>
+					  <td>User:</td>
+					  <td><select name="user" ><option>F3rdiFuchs</option></select></td>
+					  <td><input type="submit" value="add user" /></td>
+				</tr>
+				<tr>
+					  <td>User in list</td>
+					  <td></td>
+					  <td></td>
+				</tr>
+	
+				<tr>
+					  <td></td>
+					  <td></td>
+					  <td></td>
+				</tr>
+				<tr>
+				  	  <td><input type="submit" value="save task" /></td>
 				  	  <td></td>
 				  	  <td></td>
 				</tr>

@@ -115,7 +115,7 @@ public class Dcontroller {
 	{
 		_model.addAttribute("tasks", new Tasks());
 		_model.addAttribute("tasksList", this.tasksService.listTasks());
-		return "tasks";
+		return "addtask";
 	}
 	
 	
