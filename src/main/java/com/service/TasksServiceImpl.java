@@ -10,8 +10,8 @@ public class TasksServiceImpl implements TasksService{
 
 	private TasksDAO tasksDAO;
 	
-	public void addTasks(Tasks p) {
-		// TODO Auto-generated method stub
+	public void addTasks(Tasks tasks) {
+		this.tasksDAO.addTasks(tasks);
 	}
 
 	public TasksDAO getTasksDAO() {

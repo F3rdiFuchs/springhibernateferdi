@@ -1,11 +1,15 @@
 package com.model;
 
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
@@ -42,7 +46,7 @@ public class User {
 	@Email
 	@Column(name="eMail")
 	private String eMail;
-	
+
 	@NotNull
 	@Size(max=150)
 	@Column(name="passWord")
@@ -52,6 +56,11 @@ public class User {
 	@ManyToOne
 	@JoinColumn(name="groupId", nullable=false)
 	private Groups groups;
+	
+	@ManyToMany(mappedBy = "user")
+	private List<Tasks> tasks;
+	
+	
 	
 	public Groups getGroups() {
 		return groups;
@@ -128,5 +137,13 @@ public class User {
 	public String toString()
 	{
 		return this.userName;
+	}
+	public List<Tasks> getTasks() {
+		return tasks;
+	}
+
+
+	public void setTasks(List<Tasks> tasks) {
+		this.tasks = tasks;
 	}
 }

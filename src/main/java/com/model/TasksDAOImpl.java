@@ -20,7 +20,8 @@ public class TasksDAOImpl implements TasksDAO {
 		
 		Transaction tx = session.beginTransaction();
 		session.persist(_task);
-        tx.commit();
+        
+		tx.commit();
         session.close();
 		
 	}

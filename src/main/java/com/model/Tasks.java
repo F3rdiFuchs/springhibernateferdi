@@ -2,10 +2,15 @@ package com.model;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -34,9 +39,19 @@ public class Tasks {
 	@Column(name="status")
 	private Boolean status;
 	
+	@ManyToMany(cascade = CascadeType.ALL)
+	@JoinTable(name="USER_TASKS", joinColumns = @JoinColumn(name = "taskId"),inverseJoinColumns = @JoinColumn(name = "userId"))
+	private List<User> user;
+	
 	
 	public Integer getTaskId() {
 		return taskId;
+	}
+	public List<User> getUser() {
+		return user;
+	}
+	public void setUser(List<User> user) {
+		this.user = user;
 	}
 	public void setTaskId(Integer taskId) {
 		this.taskId = taskId;
