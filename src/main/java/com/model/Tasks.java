@@ -15,6 +15,8 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 @Entity
 @Table(name="TASKS")
 public class Tasks {
@@ -30,9 +32,11 @@ public class Tasks {
 	
 	@Column(name="start")
 	@NotNull
+	@DateTimeFormat(pattern="dd/MM/yyyy")
 	private String start;
 	
 	@Column(name="end")
+	@DateTimeFormat(pattern="dd/MM/yyyy")
 	private String end;
 	
 	@NotNull
