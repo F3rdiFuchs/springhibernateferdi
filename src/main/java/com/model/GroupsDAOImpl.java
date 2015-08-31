@@ -32,7 +32,7 @@ public class GroupsDAOImpl implements GroupsDAO {
 				user.getUser().toArray();
 			}
 			*/
-		groupList = session.createQuery("FROM Groups g LEFT JOIN FETCH g.user").list();
+		groupList = session.createQuery("SELECT DISTINCT g FROM Groups g LEFT JOIN FETCH g.user").list();
 			
 		session.getTransaction().commit();
 		session.close();

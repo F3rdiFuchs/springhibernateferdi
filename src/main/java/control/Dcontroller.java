@@ -126,7 +126,7 @@ public class Dcontroller {
 	private String saveTasks(@Valid Tasks tasks, BindingResult result, Model _model)
 	{
 		if (result.hasErrors()) {
-            return "addtask";
+            return "redirect:add";
         }
 		this.tasksService.addTasks(tasks);
 		

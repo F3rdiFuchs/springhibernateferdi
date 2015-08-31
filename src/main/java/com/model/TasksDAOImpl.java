@@ -15,11 +15,12 @@ public class TasksDAOImpl implements TasksDAO {
 		this.sessionFactory = sessionFactory;
 	}
 	
-	public void addTasks(Tasks _task) {
+	public void addTasks(Tasks tasks) {
+		tasks.setStatus(false);
 		Session session = this.sessionFactory.openSession();
 		
 		Transaction tx = session.beginTransaction();
-		session.persist(_task);
+		session.persist(tasks);
         
 		tx.commit();
         session.close();

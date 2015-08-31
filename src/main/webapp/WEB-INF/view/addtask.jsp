@@ -31,9 +31,9 @@
 	
 				<tr>
 					  <td>User:</td>
-					  <td><select multiple>
+					  <td><select multiple id="user" >
 					  	<c:forEach items="${listUser}" var="user">
-					  		<option value="${user.userId}">${user.userName}</option>
+					  		<option value = "${user.userId}">${user.userName}</option>
 					  	</c:forEach></select></td>
 					  <td></td>
 				</tr>
