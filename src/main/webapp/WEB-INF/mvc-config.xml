@@ -67,7 +67,4 @@
 	<bean id="tasksService" class="com.service.TasksServiceImpl">
 		<property name="tasksDAO" ref="tasksDAO"></property>
 	</bean>
-	
-	
-	
 </beans>

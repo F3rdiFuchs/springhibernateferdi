@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <html>
 	<head>
@@ -27,21 +27,22 @@
 					  <td><input type="text" name="end" /></td>
 					  <td></td>
 				</tr>
-				
-	
 				<tr>
 					  <td>User:</td>
-					  <td><select multiple id="user" >
-					  	<c:forEach items="${listUser}" var="user">
-					  		<option value = "${user.userId}">${user.userName}</option>
-					  	</c:forEach></select></td>
+					  <td>
+						  <form:select multiple="true" path="user" required="false" name="user">
+						  	<form:options items="${user.userName} }" itemsValue=""> </form:options>
+						  </form:select>  	
+					  </td>
 					  <td></td>
 				</tr>
+				
 				<tr>
 				  	  <td><input type="submit" value="save task" /></td>
 				  	  <td></td>
 				  	  <td></td>
 				</tr>
+				
 			</table>
 		</form>
 		

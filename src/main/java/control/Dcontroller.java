@@ -110,20 +110,36 @@ public class Dcontroller {
 		return "tasks";
 	}
 	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	@RequestMapping(value = "/tasks/add", method = RequestMethod.GET)	
-	private String addTasks(Model _model)
+	private String addTasks(Model model)
 	{
-		_model.addAttribute("user", new User());
-		_model.addAttribute("listUser", this.userService.listUser());
+		model.addAttribute("user", new User());
+		model.addAttribute("listUser", this.userService.listUser());
 		
 		Tasks newtasks = new Tasks();
-		_model.addAttribute("addtasks",newtasks);
-		_model.addAttribute("edit",false);
+		model.addAttribute("addtask",newtasks);
+		model.addAttribute("edit",false);
+		
+		newtasks.setStatus(false);
+		newtasks.setUser(this.userService.listUser());
+		
+		model.addAttribute("addtask",newtasks);
+		model.addAttribute("edit",false);
+		
 		return "addtask";
 	}
 	
 	@RequestMapping(value = "/tasks/add", method = RequestMethod.POST)
-	private String saveTasks(@Valid Tasks tasks, BindingResult result, Model _model)
+	private String saveTasks(@Valid Tasks tasks, BindingResult result, Model model)
 	{
 		if (result.hasErrors()) {
             return "redirect:add";
