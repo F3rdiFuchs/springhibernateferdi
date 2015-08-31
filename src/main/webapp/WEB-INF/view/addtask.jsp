@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib prefix="form" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <html>
 	<head>
@@ -8,7 +9,7 @@
 	</head> 
 	<body>
 		<h1>Add new task::</h1>
-		<form method="POST">
+		<form:form method="POST" modelAttribute="addtask" commandName="newtasks">
 			<table border ="1">
 				<tr>
 					<td>Description</td>
@@ -27,12 +28,13 @@
 					  <td><input type="text" name="end" /></td>
 					  <td></td>
 				</tr>
+				
 				<tr>
 					  <td>User:</td>
 					  <td>
-						  <form:select multiple="true" path="user" required="false" name="user">
-						  	<form:options items="${user.userName} }" itemsValue=""> </form:options>
-						  </form:select>  	
+						   <form:select path="user">
+						   		<form:options items="${listUser}"></form:options>
+						   </form:select>
 					  </td>
 					  <td></td>
 				</tr>
@@ -44,7 +46,7 @@
 				</tr>
 				
 			</table>
-		</form>
+		</form:form>
 		
 		<br><br><a href="http://localhost:8080/springhibernateferdi">back</a>
 	</body>

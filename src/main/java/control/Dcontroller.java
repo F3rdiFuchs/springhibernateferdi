@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -110,15 +111,6 @@ public class Dcontroller {
 		return "tasks";
 	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	@RequestMapping(value = "/tasks/add", method = RequestMethod.GET)	
 	private String addTasks(Model model)
 	{
@@ -126,27 +118,23 @@ public class Dcontroller {
 		model.addAttribute("listUser", this.userService.listUser());
 		
 		Tasks newtasks = new Tasks();
-		model.addAttribute("addtask",newtasks);
+		model.addAttribute("newtasks",newtasks);
 		model.addAttribute("edit",false);
 		
 		newtasks.setStatus(false);
 		newtasks.setUser(this.userService.listUser());
 		
-		model.addAttribute("addtask",newtasks);
-		model.addAttribute("edit",false);
-		
 		return "addtask";
 	}
 	
 	@RequestMapping(value = "/tasks/add", method = RequestMethod.POST)
-	private String saveTasks(@Valid Tasks tasks, BindingResult result, Model model)
-	{
+	private String saveTasks(@ModelAttribute("userForm") Tasks tasks, BindingResult result, Model model)
+	{	
 		if (result.hasErrors()) {
             return "redirect:add";
-        }
+		}
 		this.tasksService.addTasks(tasks);
 		
-		return "redirect:tasks";
+		return "http://localhost:8080/springhibernateferdi/tasks";
 	}
-
 }
