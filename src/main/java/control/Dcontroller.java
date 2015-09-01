@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.service.CompanyCarService;
 import com.service.GroupsService;
 import com.service.TasksService;
 import com.service.UserService;
@@ -25,7 +26,20 @@ public class Dcontroller {
 	private UserService 	userService;
 	private GroupsService 	groupsService;
 	private TasksService 	tasksService;
+	private CompanyCarService companyCarService;
 	
+	
+	
+	public CompanyCarService getCompanyCarService() {
+		return companyCarService;
+	}
+
+	@Autowired(required=true)
+	@Qualifier(value="companyCarService")
+	public void setCompanyCarService(CompanyCarService companyCarService) {
+		this.companyCarService = companyCarService;
+	}
+
 	public UserService getUserService() {
 		return userService;
 	}
@@ -135,4 +149,13 @@ public class Dcontroller {
 		
 		return "redirect:tasks";
 	}
+	
+	@RequestMapping(value = "/cars", method = RequestMethod.GET)	
+	private String listCars(Model _model)
+	{
+		//_model.addAttribute("tasks", new Tasks());
+		//_model.addAttribute("tasksList", this.tasksService.listTasks());
+		return "cars";
+	}
+	
 }

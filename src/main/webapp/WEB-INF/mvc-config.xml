@@ -56,6 +56,12 @@
     	</constructor-arg>
 	</bean>
 	
+	<bean id="companyCarDAO" class="com.model.CompanyCarDAOImpl">
+		<constructor-arg>
+        	<ref bean="sessionFactory" />
+    	</constructor-arg>
+	</bean>
+	
 	<bean id="userService" class="com.service.UserServiceImpl">
 		<property name="userDAO" ref="userDAO"></property>
 	</bean>
@@ -66,6 +72,10 @@
 	
 	<bean id="tasksService" class="com.service.TasksServiceImpl">
 		<property name="tasksDAO" ref="tasksDAO"></property>
+	</bean>
+	
+	<bean id="companyCarService" class="com.service.CompanyCarServiceImpl">
+		<property name="companyCarDAO" ref="companyCarDAO"></property>
 	</bean>
 	
 	<bean id="conversionService" class="org.springframework.context.support.ConversionServiceFactoryBean">
