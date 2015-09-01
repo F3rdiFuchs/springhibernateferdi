@@ -10,8 +10,9 @@
          <context:component-scan
             base-package="org.springframework.samples.web"/>  -->
 
-		<context:component-scan base-package="control" />
-    <mvc:annotation-driven />
+	<context:component-scan base-package="control" />
+    
+    <mvc:annotation-driven conversion-service="conversionService"/>
 
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 	        <property name="prefix" value="/WEB-INF/view/"/>
@@ -55,7 +56,6 @@
     	</constructor-arg>
 	</bean>
 	
-	
 	<bean id="userService" class="com.service.UserServiceImpl">
 		<property name="userDAO" ref="userDAO"></property>
 	</bean>
@@ -67,4 +67,13 @@
 	<bean id="tasksService" class="com.service.TasksServiceImpl">
 		<property name="tasksDAO" ref="tasksDAO"></property>
 	</bean>
+	
+	<bean id="conversionService" class="org.springframework.context.support.ConversionServiceFactoryBean">
+	    <property name="converters">
+	        <list>
+	            <bean class="control.StingToUserConverter"/>	
+	        </list>
+	    </property> 
+	</bean>
+	
 </beans>

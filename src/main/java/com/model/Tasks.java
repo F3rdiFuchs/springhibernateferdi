@@ -32,11 +32,11 @@ public class Tasks {
 	
 	@Column(name="start")
 	@NotNull
-	@DateTimeFormat(pattern="dd/MM/YYYY")
+	@DateTimeFormat(pattern="yyyy/MM/dd")
 	private String start;
 	
 	@Column(name="end")
-	@DateTimeFormat(pattern="dd/MM/YYYY")
+	@DateTimeFormat(pattern="yyyy/MM/dd")
 	private String end;
 	
 	@NotNull
@@ -47,18 +47,6 @@ public class Tasks {
 	@JoinTable(name="USERTASKS", joinColumns = @JoinColumn(name = "taskId"),inverseJoinColumns = @JoinColumn(name = "userId"))
 	private List<User> user;
 	
-	private List<String>userId; //only for manytomany mapping
-	
-	
-	public List<String> getUserId() {
-		return userId;
-	}
-
-
-	public void setUserId(List<String> userId) {
-		this.userId = userId;
-	}
-
 
 	public Integer getTaskId() {
 		return taskId;

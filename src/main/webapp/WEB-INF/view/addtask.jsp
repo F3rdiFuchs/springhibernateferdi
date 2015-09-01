@@ -32,9 +32,11 @@
 				<tr>
 					  <td>User:</td>
 					  <td>
-						   <form:select path="user">
-						   		<form:options items="${listUser}"></form:options>
-						   </form:select>
+						   <select multiple id="user" >
+							   	<c:forEach items="${listUser}" var="user">
+							   		<option value = "${user.userId}">${user.userName}</option>
+							   	</c:forEach>
+						   </select>
 					  </td>
 					  <td></td>
 				</tr>

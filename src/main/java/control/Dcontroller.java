@@ -34,7 +34,6 @@ public class Dcontroller {
 		return groupsService;
 	}
 
-
 	public TasksService getTasksService() {
 		return tasksService;
 	}
@@ -73,7 +72,6 @@ public class Dcontroller {
 		_model.addAttribute("listGroups", this.groupsService.listGroup());
 		return "groups";
 	}
-	
 	
 	@RequestMapping(value = "/new", method = RequestMethod.GET)
 	public String addUser(Model _model)
