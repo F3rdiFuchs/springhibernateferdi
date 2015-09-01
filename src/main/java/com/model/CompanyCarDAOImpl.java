@@ -21,12 +21,6 @@ public class CompanyCarDAOImpl implements CompanyCarDAO {
 		
 		
 		session.beginTransaction();
-		/*
-		Criteria cr = session.createCriteria(CompanyCar.class);
-		companyCarList = cr.list();
-		session.getTransaction().commit();
-		*/
-		
 		companyCarList = session.createQuery("SELECT DISTINCT g FROM CompanyCar g LEFT JOIN FETCH g.guarantor").list();
 		session.getTransaction().commit();
 		

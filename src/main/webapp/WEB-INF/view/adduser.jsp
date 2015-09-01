@@ -11,28 +11,28 @@
 				<tr>
 					<td>Username:</td>
 				  	<td><input type="text" name="userName"/></td>
-				  	<td><form:errors path="userName"/></td>
+				  	<td><form:errors path="userName" /></td>
 				</tr>
 				<tr>
 					  <td>Name:</td>
 					  <td><input type="text" name="name" /></td>
-					  <td></td>
+					  <td><form:errors path="name" /></td>
 				</tr>
 				<tr>
 					  <td>Last name:</td>
 					  <td><input type="text" name="lastName" /></td>
-					  <td></td>
-				</rt>
+					  <td><form:errors path="lastName" /></td>
+				</tr>
 				<tr>
 					  <td>E-Mail:</td>
 					  <td><input type="text" name="eMail" /></td>
-					  <td></td>
+					  <td><form:errors path="eMail"/></td>
 				</tr>
 				<tr>
 				<tr>
 					  <td>Password:</td>
 					  <td><input type="password" name="passWord" /></td>
-					  <td></td>
+					  <td><form:errors path="passWord"/></td>
 				</tr>
 				<tr>
 					  <td>Userid</td>

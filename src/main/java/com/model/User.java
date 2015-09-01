@@ -16,6 +16,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @Entity
@@ -33,21 +34,21 @@ public class User {
 	@Column(name="userName")
 	private String userName;
 	
-	@Size(max=15)
+	@Size(max=15, message="max 15 chars")
 	@Column(name="name")
 	private String name;
 	
-	@Size(max=15)
+	@Size(max=15,message="max 15 chars")
 	@Column(name="lastName")
 	private String lastName;
 	
-	@NotNull
+	@NotEmpty(message = "Please enter your email addresss.")
 	@Size(max=45)
 	@Email
 	@Column(name="eMail")
 	private String eMail;
 
-	@NotNull
+	@NotEmpty(message = "Please enter your password")
 	@Size(max=150)
 	@Column(name="passWord")
 	private String passWord;
