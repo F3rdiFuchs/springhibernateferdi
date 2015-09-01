@@ -21,7 +21,7 @@ public class TasksDAOImpl implements TasksDAO {
 		Session session = this.sessionFactory.openSession();
 		
 		Transaction tx = session.beginTransaction();
-		session.persist(tasks);
+		session.merge(tasks);
         
 		tx.commit();
         session.close();

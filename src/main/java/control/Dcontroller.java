@@ -133,6 +133,6 @@ public class Dcontroller {
 		}
 		this.tasksService.addTasks(tasks);
 		
-		return "http://localhost:8080/springhibernateferdi/tasks";
+		return "redirect:tasks";
 	}
 }
