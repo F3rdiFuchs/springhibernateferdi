@@ -32,7 +32,7 @@
 				<tr>
 					  <td>User:</td>
 					  <td>
-						   <select multiple id="user" >
+						   <select multiple path="user "name="user" required="false">
 							   	<c:forEach items="${listUser}" var="user">
 							   		<option value = "${user.userId}">${user.userName}</option>
 							   	</c:forEach>
