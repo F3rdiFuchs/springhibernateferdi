@@ -34,6 +34,8 @@
     			<value>com.model.User</value>
     			<value>com.model.Groups</value>
     			<value>com.model.Tasks</value>
+    			<value>com.model.Guarantor</value>
+    			<value>com.model.CompanyCar</value>
     		</list>
     	</property>
 	</bean>
@@ -62,6 +64,12 @@
     	</constructor-arg>
 	</bean>
 	
+	<bean id="guarantorDAO" class="com.model.GuarantorDAOImpl">
+		<constructor-arg>
+        	<ref bean="sessionFactory" />
+    	</constructor-arg>
+	</bean>
+	
 	<bean id="userService" class="com.service.UserServiceImpl">
 		<property name="userDAO" ref="userDAO"></property>
 	</bean>
@@ -76,6 +84,10 @@
 	
 	<bean id="companyCarService" class="com.service.CompanyCarServiceImpl">
 		<property name="companyCarDAO" ref="companyCarDAO"></property>
+	</bean>
+	
+	<bean id="guarantorService" class="com.service.GuarantorServiceImpl">
+		<property name="guarantorDAO" ref="guarantorDAO"></property>
 	</bean>
 	
 	<bean id="conversionService" class="org.springframework.context.support.ConversionServiceFactoryBean">

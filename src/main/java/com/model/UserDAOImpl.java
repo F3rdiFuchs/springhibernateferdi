@@ -21,43 +21,33 @@ public class UserDAOImpl implements UserDAO {
 	}
 	
 	@SuppressWarnings("unchecked") 
-	public List<User> listUser()
-	{
+	public List<User> listUser(){
 		List userList = new ArrayList();
 		Session session = this.m_sessionFactory.openSession();
-		try
-		{
-			session.beginTransaction();
-			Criteria cr = session.createCriteria(User.class);
-			userList = cr.list();
-			session.getTransaction().commit();
-		}
-
-		catch(HibernateException e)
-		{
-			e.printStackTrace();
-		}
-		finally
-		{
-			session.close();
-		}
+		
+		session.beginTransaction();
+		Criteria cr = session.createCriteria(User.class);
+		userList = cr.list();
+		session.getTransaction().commit();
+		
+		session.close();
+		
 		return userList;
 	}
 	
-	public void addUser(User user)
-	{
+	public void addUser(User user){
 		user.encryptPasswd();
 		Session session = this.m_sessionFactory.openSession();
 		
-			session.beginTransaction();
+		session.beginTransaction();
 			
-			Groups group = (Groups)session.get(Groups.class, DEFAULT_GROUPID_USER);
-			user.setGroups(group);
+		Groups group = (Groups)session.get(Groups.class, DEFAULT_GROUPID_USER);
+		user.setGroups(group);
 			
-			session.persist(user);
-			session.getTransaction().commit();
+		session.persist(user);
+		session.getTransaction().commit();
 		
-			session.close();
+		session.close();
 	}
 	
 	public void removeUser(Integer userId) {
@@ -69,6 +59,5 @@ public class UserDAOImpl implements UserDAO {
 		session.getTransaction().commit();
 		
 		session.close();
-		
 	}
 }

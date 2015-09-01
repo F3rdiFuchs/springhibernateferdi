@@ -15,8 +15,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.service.CompanyCarService;
 import com.service.GroupsService;
+import com.service.GuarantorService;
 import com.service.TasksService;
 import com.service.UserService;
+import com.model.CompanyCar;
 import com.model.Groups;
 import com.model.Tasks;
 import com.model.User;
@@ -27,9 +29,19 @@ public class Dcontroller {
 	private GroupsService 	groupsService;
 	private TasksService 	tasksService;
 	private CompanyCarService companyCarService;
+	private GuarantorService guarantorService;
 	
 	
+	public GuarantorService getGuarantorService() {
+		return guarantorService;
+	}
 	
+	@Autowired(required=true)
+	@Qualifier(value="guarantorService")
+	public void setGuarantorService(GuarantorService guarantorService) {
+		this.guarantorService = guarantorService;
+	}
+
 	public CompanyCarService getCompanyCarService() {
 		return companyCarService;
 	}
@@ -153,8 +165,8 @@ public class Dcontroller {
 	@RequestMapping(value = "/cars", method = RequestMethod.GET)	
 	private String listCars(Model _model)
 	{
-		//_model.addAttribute("tasks", new Tasks());
-		//_model.addAttribute("tasksList", this.tasksService.listTasks());
+		_model.addAttribute("companyCar", new CompanyCar());
+		_model.addAttribute("listCompanyCar", this.companyCarService.listCompanyCar());
 		return "cars";
 	}
 	

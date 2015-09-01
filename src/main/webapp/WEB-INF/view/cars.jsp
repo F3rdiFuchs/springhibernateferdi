@@ -10,16 +10,28 @@
 	</head> 
 	<body>
 		<h1>Cars and their guarantors:</h1>
-		<c:if test="${!empty listUser}">
-    <table border ="1" class="tg">
-    <tr>
-        <td>Userid</td>
-       
-        <td></td>
-    </tr>
-    
-    </table>
-</c:if>
+			<c:if test="${!empty listCompanyCar}">
+    			<table border ="1" class="tg">
+    				<tr>
+        				<td>carId</td>
+   						<td>model</td>
+   						<td>distance</td>
+   						<td>mark</td>
+   						<td>last generalinspection</td>
+   						<td>guarantor</td>
+    				</tr>
+    			<c:forEach items="${listCompanyCar}" var="companyCar">
+			        <tr>
+			            <td>${companyCar.carId}</td>
+			            <td>${companyCar.model}</td>
+			            <td>${companyCar.distance}</td>
+			            <td>${companyCar.mark}</td>
+			            <td>${companyCar.lgeneralinspection}</td>
+			            <td>${companyCar.guarantor}</td>
+			        </tr>
+    			</c:forEach>
+    		</table>
+		</c:if>
 <a href="http://localhost:8080/springhibernateferdi">back</a>
 <br>
 

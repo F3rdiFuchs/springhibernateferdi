@@ -1,7 +1,10 @@
 package com.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import org.hibernate.Criteria;
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
 public class CompanyCarDAOImpl implements CompanyCarDAO {
@@ -13,7 +16,22 @@ public class CompanyCarDAOImpl implements CompanyCarDAO {
 	}
 	
 	public List<CompanyCar> listCompanyCar() {
-		// TODO Auto-generated method stub
-		return null;
+		List companyCarList = new ArrayList();
+		Session session = this.m_sessionFactory.openSession();
+		
+		
+		session.beginTransaction();
+		/*
+		Criteria cr = session.createCriteria(CompanyCar.class);
+		companyCarList = cr.list();
+		session.getTransaction().commit();
+		*/
+		
+		companyCarList = session.createQuery("SELECT DISTINCT g FROM CompanyCar g LEFT JOIN FETCH g.guarantor").list();
+		session.getTransaction().commit();
+		
+		session.close();
+		
+		return companyCarList;
 	}
 }

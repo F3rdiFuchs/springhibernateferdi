@@ -23,7 +23,7 @@ public class Guarantor {
 	private String gName;
 	
 	
-	@OneToOne(mappedBy="carId")
+	@OneToOne(mappedBy="guarantor")
 	@Cascade(value=org.hibernate.annotations.CascadeType.SAVE_UPDATE)
 	private CompanyCar companycar;
 
@@ -55,6 +55,12 @@ public class Guarantor {
 
 	public void setCompanycar(CompanyCar companycar) {
 		this.companycar = companycar;
+	}
+	
+	@Override
+	public String toString()
+	{
+		return this.gName;
 	}
 
 	
