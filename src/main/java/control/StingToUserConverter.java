@@ -5,7 +5,7 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.convert.converter.Converter;
 
-import com.model.User;
+import com.model.User.User;
 
 public class StingToUserConverter implements Converter <String, User> {
 	private SessionFactory sessionFactory;

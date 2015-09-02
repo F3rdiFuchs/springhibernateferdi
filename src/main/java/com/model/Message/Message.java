@@ -1,4 +1,4 @@
-package com.model;
+package com.model.Message;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -12,6 +12,8 @@ import javax.validation.constraints.Size;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.format.annotation.DateTimeFormat;
 
+import com.model.User.User;
+
 @Entity
 @Table(name="MESSAGE")
 public class Message {
@@ -22,11 +24,11 @@ public class Message {
 	private Integer messageId;
 	
 	@ManyToOne
-	@JoinColumn(name="userId", nullable=false)
+	@JoinColumn(name="userId", insertable = false, updatable = false)
 	private User fromUser;
 	
 	@ManyToOne
-	@JoinColumn(name="userId", nullable=false)
+	@JoinColumn(name="userId", insertable = false, updatable = false)
 	private User toUser;
 	
 	@Column(name="title")

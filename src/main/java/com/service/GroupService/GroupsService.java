@@ -1,9 +1,9 @@
-package com.service;
+package com.service.GroupService;
 
 import java.util.List;
 
-import com.model.Groups;
-import com.model.User;
+import com.model.Groups.Groups;
+import com.model.User.User;
 
 public interface GroupsService {
 	public void addGroup(Groups p);

@@ -13,15 +13,15 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.service.CompanyCarService;
-import com.service.GroupsService;
-import com.service.GuarantorService;
-import com.service.TasksService;
-import com.service.UserService;
-import com.model.CompanyCar;
-import com.model.Groups;
-import com.model.Tasks;
-import com.model.User;
+import com.service.CarService.CompanyCarService;
+import com.service.GroupService.GroupsService;
+import com.service.GuarantorService.GuarantorService;
+import com.service.TasksService.TasksService;
+import com.service.UserService.UserService;
+import com.model.CompanyCar.CompanyCar;
+import com.model.Groups.Groups;
+import com.model.Tasks.Tasks;
+import com.model.User.User;
 
 @Controller
 public class Dcontroller {

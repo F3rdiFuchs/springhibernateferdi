@@ -1,4 +1,4 @@
-package com.model;
+package com.model.User;
 
 
 import java.util.List;
@@ -19,6 +19,10 @@ import javax.validation.constraints.Size;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
+import com.model.Groups.Groups;
+import com.model.Message.Message;
+import com.model.Tasks.Tasks;
 
 @Entity
 @Table(name="USER")

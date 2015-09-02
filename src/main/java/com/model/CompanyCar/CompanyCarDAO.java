@@ -1,4 +1,4 @@
-package com.model;
+package com.model.CompanyCar;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package com.model;
+package com.model.Groups;
 
 import java.util.List;
 import javax.persistence.CascadeType;
@@ -9,6 +9,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.model.User.User;
 
 @Entity
 @Table(name="GROUPS")

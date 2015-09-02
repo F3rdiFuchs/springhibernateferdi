@@ -1,4 +1,4 @@
-package com.model;
+package com.model.Guarantor;
 
 import java.util.List;
 

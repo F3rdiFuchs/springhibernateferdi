@@ -1,10 +1,10 @@
-package com.service;
+package com.service.TasksService;
 
 import java.util.List;
 
-import com.model.Tasks;
-import com.model.TasksDAO;
-import com.model.User;
+import com.model.Tasks.Tasks;
+import com.model.Tasks.TasksDAO;
+import com.model.User.User;
 
 public class TasksServiceImpl implements TasksService{
 

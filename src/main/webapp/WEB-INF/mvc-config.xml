@@ -31,62 +31,63 @@
     	<property name="configLocation" value="classpath:hibernate.cfg.xml" />
     	<property name="annotatedClasses">
     		<list>
-    			<value>com.model.User</value>
-    			<value>com.model.Groups</value>
-    			<value>com.model.Tasks</value>
-    			<value>com.model.Guarantor</value>
-    			<value>com.model.CompanyCar</value>
+    			<value>com.model.User.User</value>
+    			<value>com.model.Groups.Groups</value>
+    			<value>com.model.Tasks.Tasks</value>
+    			<value>com.model.Guarantor.Guarantor</value>
+    			<value>com.model.CompanyCar.CompanyCar</value>
+    			<value>com.model.Message.Message</value>
     		</list>
     	</property>
 	</bean>
 	
-	<bean id="userDAO" class="com.model.UserDAOImpl">
+	<bean id="userDAO" class="com.model.User.UserDAOImpl">
 		<constructor-arg>
         	<ref bean="sessionFactory" />
     	</constructor-arg>
 	</bean>
 	
-	<bean id="groupsDAO" class="com.model.GroupsDAOImpl">
+	<bean id="groupsDAO" class="com.model.Groups.GroupsDAOImpl">
 		<constructor-arg>
         	<ref bean="sessionFactory" />
     	</constructor-arg>
 	</bean>
 	
-	<bean id="tasksDAO" class="com.model.TasksDAOImpl">
+	<bean id="tasksDAO" class="com.model.Tasks.TasksDAOImpl">
 		<constructor-arg>
         	<ref bean="sessionFactory" />
     	</constructor-arg>
 	</bean>
 	
-	<bean id="companyCarDAO" class="com.model.CompanyCarDAOImpl">
+	<bean id="companyCarDAO" class="com.model.CompanyCar.CompanyCarDAOImpl">
 		<constructor-arg>
         	<ref bean="sessionFactory" />
     	</constructor-arg>
 	</bean>
 	
-	<bean id="guarantorDAO" class="com.model.GuarantorDAOImpl">
+	<bean id="guarantorDAO" class="com.model.Guarantor.GuarantorDAOImpl">
 		<constructor-arg>
         	<ref bean="sessionFactory" />
     	</constructor-arg>
 	</bean>
 	
-	<bean id="userService" class="com.service.UserServiceImpl">
+	<bean id="userService" class="com.service.UserService.UserServiceImpl">
 		<property name="userDAO" ref="userDAO"></property>
 	</bean>
 	
-	<bean id="groupsService" class="com.service.GroupsServiceImpl">
+	<bean id="groupsService" class="com.service.GroupService.GroupsServiceImpl">
 		<property name="groupsDAO" ref="groupsDAO"></property>
 	</bean>
 	
-	<bean id="tasksService" class="com.service.TasksServiceImpl">
+	<bean id="tasksService" class="com.service.TasksService.TasksServiceImpl">
 		<property name="tasksDAO" ref="tasksDAO"></property>
 	</bean>
 	
-	<bean id="companyCarService" class="com.service.CompanyCarServiceImpl">
+	<bean id="companyCarService" class="com.service.CarService.CompanyCarServiceImpl">
 		<property name="companyCarDAO" ref="companyCarDAO"></property>
 	</bean>
 	
-	<bean id="guarantorService" class="com.service.GuarantorServiceImpl">
+	<bean id="guarantorService" class="com.service.GuarantorService.GuarantorServiceImpl">
 		<property name="guarantorDAO" ref="guarantorDAO"></property>
 	</bean>
 	

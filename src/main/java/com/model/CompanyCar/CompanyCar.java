@@ -1,4 +1,4 @@
-package com.model;
+package com.model.CompanyCar;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,6 +8,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
+
+import com.model.Guarantor.Guarantor;
 
 @Entity
 @Table(name="COMPANYCAR")

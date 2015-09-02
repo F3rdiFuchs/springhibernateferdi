@@ -1,7 +1,6 @@
-package com.model;
+package com.model.User;
 
 import java.util.List;
-import com.model.User;
 
 public interface UserDAO {
 	public List <User> listUser();

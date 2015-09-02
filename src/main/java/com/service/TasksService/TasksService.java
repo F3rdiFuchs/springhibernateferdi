@@ -1,9 +1,9 @@
-package com.service;
+package com.service.TasksService;
 
 import java.util.List;
 
-import com.model.Tasks;
-import com.model.User;
+import com.model.Tasks.Tasks;
+import com.model.User.User;
 
 public interface TasksService {
 	public void addTasks(Tasks p);

@@ -1,9 +1,9 @@
-package com.service;
+package com.service.GuarantorService;
 
 import java.util.List;
 
-import com.model.Guarantor;
-import com.model.GuarantorDAO;
+import com.model.Guarantor.Guarantor;
+import com.model.Guarantor.GuarantorDAO;
 
 public class GuarantorServiceImpl implements GuarantorService{
 	private GuarantorDAO guarantorDAO;

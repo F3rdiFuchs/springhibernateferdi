@@ -1,4 +1,4 @@
-package com.model;
+package com.model.Guarantor;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,6 +9,8 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.Cascade;
+
+import com.model.CompanyCar.CompanyCar;
 
 @Entity
 @Table(name="GUARANTOR")
