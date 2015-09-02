@@ -1,11 +1,11 @@
 package com.model;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
 
@@ -14,15 +14,19 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Table(name="MESSAGE")
-public class message {
+public class Message {
 	
 	@Id
     @GeneratedValue
     @Column(name="messageId")
 	private Integer messageId;
 	
+	@ManyToOne
+	@JoinColumn(name="userId", nullable=false)
 	private User fromUser;
 	
+	@ManyToOne
+	@JoinColumn(name="userId", nullable=false)
 	private User toUser;
 	
 	@Column(name="title")
@@ -41,7 +45,7 @@ public class message {
 	@DateTimeFormat(pattern="yyyy/MM/dd")
 	@NotEmpty
 	private String date;
-
+	
 	public Integer getMessageId() {
 		return messageId;
 	}
@@ -96,7 +100,5 @@ public class message {
 
 	public void setDate(String date) {
 		this.date = date;
-	}
-	
-	
+	}	
 }

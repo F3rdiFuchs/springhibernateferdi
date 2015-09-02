@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -60,7 +61,12 @@ public class User {
 	@ManyToMany(mappedBy = "user")
 	private List<Tasks> tasks;
 	
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "fromUser")
+	private List<Message> messageFrom;
 	
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "toUser")
+	private List<Message> messageTo;
+		
 	
 	public Groups getGroups() {
 		return groups;
@@ -121,6 +127,24 @@ public class User {
 		this.passWord = passWord;
 	}
 
+	public List<Message> getMessageFrom() {
+		return messageFrom;
+	}
+
+
+	public void setMessageFrom(List<Message> messageFrom) {
+		this.messageFrom = messageFrom;
+	}
+
+
+	public List<Message> getMessageTo() {
+		return messageTo;
+	}
+
+
+	public void setMessageTo(List<Message> messageTo) {
+		this.messageTo = messageTo;
+	}
 
 	public void encryptPasswd() {
 		int count = 0;
@@ -130,7 +154,6 @@ public class User {
 			this.passWord = passwordEncoder.encode(this.passWord);
 			count++;
 		}
-		
 	}
 	
 	@Override
@@ -141,7 +164,6 @@ public class User {
 	public List<Tasks> getTasks() {
 		return tasks;
 	}
-
 
 	public void setTasks(List<Tasks> tasks) {
 		this.tasks = tasks;
