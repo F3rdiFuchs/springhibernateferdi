@@ -16,22 +16,36 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.service.CarService.CompanyCarService;
 import com.service.GroupService.GroupsService;
 import com.service.GuarantorService.GuarantorService;
+import com.service.MessageService.MessageService;
 import com.service.TasksService.TasksService;
 import com.service.UserService.UserService;
 import com.model.CompanyCar.CompanyCar;
 import com.model.Groups.Groups;
 import com.model.Tasks.Tasks;
 import com.model.User.User;
+import com.model.Message.*;
 
 @Controller
 public class Dcontroller {
-	private UserService 	userService;
-	private GroupsService 	groupsService;
-	private TasksService 	tasksService;
-	private CompanyCarService companyCarService;
-	private GuarantorService guarantorService;
+	private UserService 		userService;
+	private GroupsService 		groupsService;
+	private TasksService 		tasksService;
+	private CompanyCarService 	companyCarService;
+	private GuarantorService 	guarantorService;
+	private MessageService 		messageService;
 	
 	
+	
+	public MessageService getMessageService() {
+		return messageService;
+	}
+	
+	@Autowired(required=true)
+	@Qualifier(value="messageService")
+	public void setMessageService(MessageService messageService) {
+		this.messageService = messageService;
+	}
+
 	public GuarantorService getGuarantorService() {
 		return guarantorService;
 	}
@@ -168,6 +182,14 @@ public class Dcontroller {
 		_model.addAttribute("companyCar", new CompanyCar());
 		_model.addAttribute("listCompanyCar", this.companyCarService.listCompanyCar());
 		return "cars";
+	}
+	
+	@RequestMapping(value = "/message", method = RequestMethod.GET)	
+	private String listMessages(Model _model)
+	{
+		_model.addAttribute("message", new Message());
+		_model.addAttribute("listMessage", this.messageService.listMessages());
+		return "message";
 	}
 	
 }

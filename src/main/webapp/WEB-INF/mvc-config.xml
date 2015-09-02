@@ -59,6 +59,12 @@
     	</constructor-arg>
 	</bean>
 	
+	<bean id="messageDAO" class="com.model.Message.MessageDAOImpl">
+		<constructor-arg>
+        	<ref bean="sessionFactory" />
+    	</constructor-arg>
+	</bean>
+	
 	<bean id="companyCarDAO" class="com.model.CompanyCar.CompanyCarDAOImpl">
 		<constructor-arg>
         	<ref bean="sessionFactory" />
@@ -89,6 +95,10 @@
 	
 	<bean id="guarantorService" class="com.service.GuarantorService.GuarantorServiceImpl">
 		<property name="guarantorDAO" ref="guarantorDAO"></property>
+	</bean>
+	
+	<bean id="messageService" class="com.service.MessageService.MessageServiceImpl">
+		<property name="messageDAO" ref="messageDAO"></property>
 	</bean>
 	
 	<bean id="conversionService" class="org.springframework.context.support.ConversionServiceFactoryBean">

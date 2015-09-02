@@ -59,16 +59,18 @@ public class User {
 	private String passWord;
 	
 	@ManyToOne
-	@JoinColumn(name="groupId", nullable=false)
+	@JoinColumn(name="groupId")
 	private Groups groups;
 	
 	@ManyToMany(mappedBy = "user")
 	private List<Tasks> tasks;
 	
-	@OneToMany(cascade = CascadeType.ALL, mappedBy = "fromUser")
+	@OneToMany
+	@JoinColumn(name="fromUser")
 	private List<Message> messageFrom;
 	
-	@OneToMany(cascade = CascadeType.ALL, mappedBy = "toUser")
+	@OneToMany
+	@JoinColumn(name="toUser")
 	private List<Message> messageTo;
 		
 	

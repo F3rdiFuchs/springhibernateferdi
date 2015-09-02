@@ -17,5 +17,6 @@
 		 <a href="http://localhost:8080/springhibernateferdi/groups">Groups</a><br>
 		 <a href="http://localhost:8080/springhibernateferdi/tasks">Tasks</a><br>
 		 <a href="http://localhost:8080/springhibernateferdi/cars">Cars</a><br>
+		 <a href="http://localhost:8080/springhibernateferdi/message">Messages</a><br>
 	</body>
 </html>

@@ -14,21 +14,22 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import com.model.User.User;
 
+
 @Entity
 @Table(name="MESSAGE")
 public class Message {
 	
 	@Id
     @GeneratedValue
-    @Column(name="messageId")
+    @Column(name="userId")
 	private Integer messageId;
 	
 	@ManyToOne
-	@JoinColumn(name="userId", insertable = false, updatable = false)
+	@JoinColumn(name="userId")
 	private User fromUser;
 	
 	@ManyToOne
-	@JoinColumn(name="userId", insertable = false, updatable = false)
+	@JoinColumn(name="userId")
 	private User toUser;
 	
 	@Column(name="title")
