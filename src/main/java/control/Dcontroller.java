@@ -159,7 +159,7 @@ public class Dcontroller {
 		}
 		this.tasksService.addTasks(tasks);
 		
-		return "redirect:tasks";
+		return "redirect:/tasks";
 	}
 	
 	@RequestMapping(value = "/cars", method = RequestMethod.GET)	

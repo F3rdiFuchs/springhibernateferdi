@@ -18,6 +18,11 @@ public class TasksDAOImpl implements TasksDAO {
 	
 	public void addTasks(Tasks tasks) {
 		tasks.setStatus(false);
+		
+		if(tasks.getEnd()=="")
+		{
+			tasks.setEnd(null);
+		}
 		Session session = this.sessionFactory.openSession();
 		
 		Transaction tx = session.beginTransaction();
