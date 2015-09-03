@@ -20,4 +20,8 @@ public class MessageServiceImpl implements MessageService {
 	public void setMessageDAO(MessageDAO messageDAO) {
 		this.messageDAO = messageDAO;
 	}
+
+	public void sendMessage(Message message) {
+		this.messageDAO.sendMessage(message);
+	}
 }

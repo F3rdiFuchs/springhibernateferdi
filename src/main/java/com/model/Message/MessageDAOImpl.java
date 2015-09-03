@@ -6,6 +6,8 @@ import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
+import com.model.Groups.Groups;
+
 public class MessageDAOImpl implements MessageDAO{
 private SessionFactory sessionFactory;
 	
@@ -25,6 +27,15 @@ private SessionFactory sessionFactory;
 		session.close();
 		
 		return messageList;
+	}
+	
+	public void sendMessage(Message message) {
+		Session session = this.sessionFactory.openSession();
+		
+		session.beginTransaction();		
+		session.persist(message);
+		session.getTransaction().commit();
+		session.close();
 	}
 
 }

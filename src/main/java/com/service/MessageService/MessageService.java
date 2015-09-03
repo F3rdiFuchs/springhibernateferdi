@@ -7,4 +7,5 @@ import com.model.Message.Message;
 
 public interface MessageService {
 	public List<Message> listMessages();
+	public void sendMessage(Message message);
 }
