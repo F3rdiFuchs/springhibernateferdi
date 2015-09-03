@@ -60,14 +60,18 @@ public class UserDAOImpl implements UserDAO {
 		session.beginTransaction();
 		Message message;
 		List messageList = new ArrayList();
-		User user = (User)session.get(User.class, DEFAULT_MESSAGE_USER);
+		User standartUser 	= (User)session.get(User.class, DEFAULT_MESSAGE_USER);
+		User usertodelete 	= (User)session.get(User.class, userId);
 		
-		messageList = session.createQuery("FROM Message m JOIN FETCH m.fromUser JOIN FETCH m.toUser WHERE toUser = :userId").list();
-
+		messageList = session.createQuery("FROM Message m JOIN FETCH m.fromUser JOIN FETCH m.toUser WHERE fromUser = :user")
+				.setEntity("user", usertodelete)
+				.list();
+		//iterator 
+		
 		for(int index=0; index < messageList.size();index++)
 		{
 			message = (Message) messageList.get(index);
-			message.setFromUser(user);
+			message.setFromUser(standartUser);
 			session.save(message);
 			/*
 			 * if(index != 0 && index % BATCH_SIZE == 0)
@@ -76,7 +80,7 @@ public class UserDAOImpl implements UserDAO {
 			 */
 		}
 
-		session.delete(user);
+		session.delete(usertodelete);
 		session.getTransaction().commit();
 		
 		session.close();
