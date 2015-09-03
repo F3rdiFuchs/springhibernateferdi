@@ -80,6 +80,12 @@
     	</constructor-arg>
 	</bean>
 	
+	<bean id="noteDAO" class="com.model.Note.NoteDAOImpl">
+		<constructor-arg>
+        	<ref bean="sessionFactory" />
+    	</constructor-arg>
+	</bean>
+	
 	<bean id="userService" class="com.service.UserService.UserServiceImpl">
 		<property name="userDAO" ref="userDAO"></property>
 	</bean>
@@ -102,6 +108,10 @@
 	
 	<bean id="messageService" class="com.service.MessageService.MessageServiceImpl">
 		<property name="messageDAO" ref="messageDAO"></property>
+	</bean>
+	
+	<bean id="noteService" class="com.service.Note.NoteServiceImpl">
+		<property name="noteDAO" ref="noteDAO"></property>
 	</bean>
 	
 	<bean id="conversionService" class="org.springframework.context.support.ConversionServiceFactoryBean">

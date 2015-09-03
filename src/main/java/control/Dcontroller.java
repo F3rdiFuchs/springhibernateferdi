@@ -17,6 +17,7 @@ import com.service.CarService.CompanyCarService;
 import com.service.GroupService.GroupsService;
 import com.service.GuarantorService.GuarantorService;
 import com.service.MessageService.MessageService;
+import com.service.Note.NoteService;
 import com.service.TasksService.TasksService;
 import com.service.UserService.UserService;
 import com.model.CompanyCar.CompanyCar;
@@ -24,6 +25,7 @@ import com.model.Groups.Groups;
 import com.model.Tasks.Tasks;
 import com.model.User.User;
 import com.model.Message.*;
+import com.model.Note.Note;
 
 @Controller
 public class Dcontroller {
@@ -33,9 +35,20 @@ public class Dcontroller {
 	private CompanyCarService 	companyCarService;
 	private GuarantorService 	guarantorService;
 	private MessageService 		messageService;
+	private NoteService 		noteservice;
 	
 	
 	
+	public NoteService getNoteservice() {
+		return noteservice;
+	}
+	
+	@Autowired(required=true)
+	@Qualifier(value="noteService")
+	public void setNoteservice(NoteService noteservice) {
+		this.noteservice = noteservice;
+	}
+
 	public MessageService getMessageService() {
 		return messageService;
 	}
@@ -191,5 +204,15 @@ public class Dcontroller {
 		_model.addAttribute("listMessage", this.messageService.listMessages());
 		return "message";
 	}
+	
+	@RequestMapping(value = "/note", method = RequestMethod.GET)	
+	private String listNotes(Model _model)
+	{
+		_model.addAttribute("note", new Note());
+		_model.addAttribute("listNote", this.noteservice.listNotes());
+		return "note";
+	}
+	
+	
 	
 }

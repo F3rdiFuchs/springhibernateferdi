@@ -2,6 +2,7 @@ package com.model.Note;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -41,7 +42,7 @@ public class Note {
 	@Column(name="date")
 	private String date;
 	
-	@OneToMany(mappedBy = "note")
+	@OneToMany(mappedBy = "note",cascade=CascadeType.REMOVE)
 	private List<File> files;
 	
 	@ManyToMany(mappedBy = "notes")

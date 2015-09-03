@@ -1,5 +1,8 @@
 package com.model.Note;
 
-public interface NoteDAO {
+import java.util.List;
 
+
+public interface NoteDAO {
+	public List <Note> listNotes();
 }
