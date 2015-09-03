@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.service.CarService.CompanyCarService;
+import com.service.Category.CategoryService;
 import com.service.GroupService.GroupsService;
 import com.service.GuarantorService.GuarantorService;
 import com.service.MessageService.MessageService;
@@ -36,9 +37,20 @@ public class Dcontroller {
 	private GuarantorService 	guarantorService;
 	private MessageService 		messageService;
 	private NoteService 		noteservice;
+	private CategoryService		categoryService;
 	
 	
 	
+	public CategoryService getCategoryService() {
+		return categoryService;
+	}
+	
+	@Autowired(required=true)
+	@Qualifier(value="categoryService")
+	public void setCategoryService(CategoryService categoryService) {
+		this.categoryService = categoryService;
+	}
+
 	public NoteService getNoteservice() {
 		return noteservice;
 	}

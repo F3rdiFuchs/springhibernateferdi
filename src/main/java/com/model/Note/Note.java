@@ -48,6 +48,7 @@ public class Note {
 	@ManyToMany(mappedBy = "notes")
 	private List<Category> category;
 
+	
 	public Integer getNoteId() {
 		return noteId;
 	}
@@ -95,4 +96,5 @@ public class Note {
 	public void setCategory(List<Category> category) {
 		this.category = category;
 	}
+	
 }

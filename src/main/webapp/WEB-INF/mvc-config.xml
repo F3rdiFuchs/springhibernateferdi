@@ -86,6 +86,12 @@
     	</constructor-arg>
 	</bean>
 	
+	<bean id="categoryDAO" class="com.model.Category.CategoryDAOImpl">
+		<constructor-arg>
+        	<ref bean="sessionFactory" />
+    	</constructor-arg>
+	</bean>
+	
 	<bean id="userService" class="com.service.UserService.UserServiceImpl">
 		<property name="userDAO" ref="userDAO"></property>
 	</bean>
@@ -112,6 +118,10 @@
 	
 	<bean id="noteService" class="com.service.Note.NoteServiceImpl">
 		<property name="noteDAO" ref="noteDAO"></property>
+	</bean>
+	
+	<bean id="categoryService" class="com.service.Category.CategoryServiceImpl">
+		<property name="categoryDAO" ref="categoryDAO"></property>
 	</bean>
 	
 	<bean id="conversionService" class="org.springframework.context.support.ConversionServiceFactoryBean">
