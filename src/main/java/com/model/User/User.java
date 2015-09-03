@@ -23,6 +23,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import com.model.Groups.Groups;
 import com.model.Message.Message;
+import com.model.Note.Note;
 import com.model.Tasks.Tasks;
 
 @Entity
@@ -70,9 +71,23 @@ public class User {
 	@OneToMany(mappedBy = "fromUser")
 	private List<Message> messageFrom;
 	
-	@OneToMany(mappedBy = "toUser", cascade=CascadeType.REMOVE) //delete user -> delet all his messages
+	@OneToMany(mappedBy = "toUser", cascade=CascadeType.REMOVE) //delete user -> delet all his incomming messages
 	private List<Message> messageTo;
-		
+	
+	@OneToMany(mappedBy = "user")
+	private List<Note> notes;
+	
+	
+	
+	public List<Note> getNotes() {
+		return notes;
+	}
+
+	
+	public void setNotes(List<Note> notes) {
+		this.notes = notes;
+	}
+
 	
 	public Groups getGroups() {
 		return groups;

@@ -49,6 +49,7 @@ public class Tasks {
 	@JoinTable(name="USERTASKS", joinColumns = @JoinColumn(name = "taskId"),inverseJoinColumns = @JoinColumn(name = "userId"))
 	private List<User> user;
 	
+	
 
 	public Integer getTaskId() {
 		return taskId;
