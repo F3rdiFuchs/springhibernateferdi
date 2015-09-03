@@ -3,6 +3,7 @@ package com.model.Message;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -21,16 +22,18 @@ public class Message {
 	
 	@Id
     @GeneratedValue
-    @Column(name="userId")
+    @Column(name="messageId")
 	private Integer messageId;
 	
+	
 	@ManyToOne
-	@JoinColumn(name="userId")
+	@JoinColumn(name="fromuser")
 	private User fromUser;
 	
 	@ManyToOne
-	@JoinColumn(name="userId")
+	@JoinColumn(name="touser")
 	private User toUser;
+	
 	
 	@Column(name="title")
 	@Size(max=45, message="max 45 chars")
@@ -45,7 +48,7 @@ public class Message {
 	private Boolean status;
 	
 	@Column(name="date")
-	@DateTimeFormat(pattern="yyyy/MM/dd")
+	@DateTimeFormat
 	@NotEmpty
 	private String date;
 	

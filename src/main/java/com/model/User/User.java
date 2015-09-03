@@ -65,12 +65,11 @@ public class User {
 	@ManyToMany(mappedBy = "user")
 	private List<Tasks> tasks;
 	
-	@OneToMany
-	@JoinColumn(name="fromUser")
+	
+	@OneToMany(mappedBy = "fromUser")
 	private List<Message> messageFrom;
 	
-	@OneToMany
-	@JoinColumn(name="toUser")
+	@OneToMany(mappedBy = "toUser")
 	private List<Message> messageTo;
 		
 	

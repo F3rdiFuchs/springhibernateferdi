@@ -13,11 +13,19 @@
 			<c:if test="${!empty listMessage}">
     			<table border ="1" class="tg">
     				<tr>
-        				<td></td>
+        				<td>From:</td>
+        				<td>To:</td>
+        				<td>Title:</td>
+        				<td>Message:</td>
+        				<td>Date:</td>
     				</tr>
     			<c:forEach items="${listMessage}" var="message">
 			        <tr>
-			            <td></td>
+			            <td>${message.fromUser}</td>
+        				<td>${message.toUser}</td>
+        				<td>${message.title}</td>
+        				<td>${message.message}</td>
+        				<td>${message.date}</td>
 			        </tr>
     			</c:forEach>
     		</table>
