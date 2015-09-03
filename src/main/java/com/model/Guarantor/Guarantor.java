@@ -26,7 +26,6 @@ public class Guarantor {
 	
 	
 	@OneToOne(mappedBy="guarantor")
-	@Cascade(value=org.hibernate.annotations.CascadeType.SAVE_UPDATE)
 	private CompanyCar companycar;
 
 

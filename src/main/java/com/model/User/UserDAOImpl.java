@@ -55,10 +55,10 @@ public class UserDAOImpl implements UserDAO {
 		session.close();
 	}
 	
+	@SuppressWarnings("unchecked")
 	public void removeUser(Integer userId) {
 		Session session = this.m_sessionFactory.openSession();
 		session.beginTransaction();
-		Message message;
 		List messageList = new ArrayList();
 		User standartUser 	= (User)session.get(User.class, DEFAULT_MESSAGE_USER);
 		User usertodelete 	= (User)session.get(User.class, userId);
@@ -66,21 +66,16 @@ public class UserDAOImpl implements UserDAO {
 		messageList = session.createQuery("FROM Message m JOIN FETCH m.fromUser JOIN FETCH m.toUser WHERE fromUser = :user")
 				.setEntity("user", usertodelete)
 				.list();
-		//iterator 
+
 		
-		for(int index=0; index < messageList.size();index++)
+		for(Message fmessage : (List<Message>)messageList)
 		{
-			message = (Message) messageList.get(index);
-			message.setFromUser(standartUser);
-			session.save(message);
-			/*
-			 * if(index != 0 && index % BATCH_SIZE == 0)
-             * session.flush();
-			 * 
-			 */
+			fmessage.setFromUser(standartUser);
+			session.save(fmessage);
 		}
 
-		session.delete(usertodelete);
+
+		session.delete(usertodelete);// cascade-delete
 		session.getTransaction().commit();
 		
 		session.close();

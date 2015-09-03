@@ -16,6 +16,7 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import org.hibernate.annotations.Cascade;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -69,7 +70,7 @@ public class User {
 	@OneToMany(mappedBy = "fromUser")
 	private List<Message> messageFrom;
 	
-	@OneToMany(mappedBy = "toUser")
+	@OneToMany(mappedBy = "toUser", cascade=CascadeType.REMOVE) //delete user -> delet all his messages
 	private List<Message> messageTo;
 		
 	

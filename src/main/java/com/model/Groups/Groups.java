@@ -29,7 +29,7 @@ public class Groups {
 	@Column(name="allowToLogin")
 	private Boolean allowToLogin;
 	
-	@OneToMany(cascade = CascadeType.ALL, mappedBy = "groups")
+	@OneToMany(mappedBy = "groups")
 	private List<User> user;
 
 	
