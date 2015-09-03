@@ -5,8 +5,6 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -27,6 +25,9 @@ public class Groups {
 	
 	@Column(name="accessLevel")
 	private Integer accessLevel;
+	
+	@Column(name="allowToLogin")
+	private Boolean allowToLogin;
 	
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "groups")
 	private List<User> user;
@@ -72,7 +73,11 @@ public class Groups {
 		this.accessLevel = accessLevel;
 	}
 
-	
+	public Boolean getAllowToLogin() {
+		return allowToLogin;
+	}
 
-	
+	public void setAllowToLogin(Boolean allowToLogin) {
+		this.allowToLogin = allowToLogin;
+	}
 }

@@ -24,4 +24,8 @@ public class MessageServiceImpl implements MessageService {
 	public void sendMessage(Message message) {
 		this.messageDAO.sendMessage(message);
 	}
+
+	public void deleteMessage(Integer messageId) {
+		this.messageDAO.deleteMessage(messageId);	
+	}
 }

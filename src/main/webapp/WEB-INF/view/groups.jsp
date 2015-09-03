@@ -17,6 +17,7 @@
 	        <td>Name</td>
 	        <td>Description</td>
 	        <td>Accesslevel</td>
+	        <td>Login allowed?</td>
 	        <td>User in this group</td>
 	    </tr>
 	    <c:forEach items="${listGroups}" var="groups">
@@ -25,6 +26,7 @@
 	            <td>${groups.name}</td>
 	            <td>${groups.description}</td>
 	            <td>${groups.accessLevel}</td>
+	            <td>${groups.allowToLogin}</td>
 	            <td>${groups.user}</td>
 	        </tr>
 	    </c:forEach>

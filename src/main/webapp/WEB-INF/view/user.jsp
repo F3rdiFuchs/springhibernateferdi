@@ -29,13 +29,13 @@
             <td>${user.lastName}</td>
             <td>${user.eMail}</td>
             <td>${user.passWord}</td>
-            <td><a href="http://localhost:8080/springhibernateferdi/delete/${user.userId}">delete</a></td>
+            <td><a href="http://localhost:8080/springhibernateferdi/delete/${user.userId}">delete*</a></td>
         </tr>
     </c:forEach>
     </table>
 </c:if>
 <a href="http://localhost:8080/springhibernateferdi">back</a>
-<br><a href="http://localhost:8080/springhibernateferdi/new">new user</a>
+<br><a href="http://localhost:8080/springhibernateferdi/new">new user</a><br>* user and his messages 
 
 	</body>
 </html>

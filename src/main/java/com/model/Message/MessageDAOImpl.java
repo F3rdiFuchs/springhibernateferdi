@@ -7,6 +7,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
 import com.model.Groups.Groups;
+import com.model.User.User;
 
 public class MessageDAOImpl implements MessageDAO{
 private SessionFactory sessionFactory;
@@ -36,6 +37,18 @@ private SessionFactory sessionFactory;
 		session.persist(message);
 		session.getTransaction().commit();
 		session.close();
+	}
+	public void deleteMessage(Integer messageId) {
+		Session session = this.sessionFactory.openSession();
+		session.beginTransaction();
+		
+		Message message = (Message)session.get(Message.class, messageId);
+		
+		session.delete(message);
+		session.getTransaction().commit();
+		
+		session.close();
+		
 	}
 
 }
