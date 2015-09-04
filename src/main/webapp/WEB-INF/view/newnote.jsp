@@ -31,7 +31,7 @@
 				
 				<tr>
 					<td>Documents:</td>
-				  	<td><input type="file" name="file" multiple></td>
+				  	<td><input type="file" id="file" name="file" multiple></td>
 				  	<td></td>
 				</tr>
 				

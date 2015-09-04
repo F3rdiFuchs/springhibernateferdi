@@ -29,6 +29,12 @@ public class NoteDAOImpl implements NoteDAO{
 	}
 
 	public void addNote(Note newNote) {	
+		
+		Session session = this.sessionFactory.openSession();
+		session.beginTransaction();
+		session.persist(newNote);
+		session.getTransaction().commit();
+		session.close();
 	}
 
 }
