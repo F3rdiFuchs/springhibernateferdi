@@ -40,6 +40,7 @@
     			<value>com.model.Note.Note</value>
     			<value>com.model.File.File</value>
     			<value>com.model.Category.Category</value>
+    			<value>com.model.Data.Data</value>
     		</list>
     	</property>
 	</bean>

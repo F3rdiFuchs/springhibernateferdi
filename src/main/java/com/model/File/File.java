@@ -1,15 +1,16 @@
 package com.model.File;
 
-import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import com.model.Data.Data;
 import com.model.Note.Note;
 
 @Entity
@@ -24,10 +25,8 @@ public class File {
 	@JoinColumn(name="noteId")
 	private Note note;
 	
-	@Lob 
-	@Basic(fetch=FetchType.LAZY)
-	@Column(name="file")
-	private byte[] file;
+    @OneToOne(fetch = FetchType.LAZY, mappedBy="file")
+	private Data data;
 
 	public Integer getFileId() {
 		return fileId;
@@ -45,11 +44,16 @@ public class File {
 		this.note = note;
 	}
 
-	public byte[] getFile() {
-		return file;
+	public Data getData() {
+		return data;
 	}
 
-	public void setFile(byte[] file) {
-		this.file = file;
+	public void setData(Data data) {
+		this.data = data;
 	}
+
+	public void setFileId(Integer fileId) {
+		this.fileId = fileId;
+	}
+	
 }
