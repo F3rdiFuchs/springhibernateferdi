@@ -19,6 +19,10 @@ public class NoteServiceImpl implements NoteService {
 	public void setNoteDAO(NoteDAO noteDAO) {
 		this.noteDAO = noteDAO;
 	}
+
+	public void addNote(Note newNote) {
+		this.noteDAO.addNote(newNote);
+	}
 	
 
 }

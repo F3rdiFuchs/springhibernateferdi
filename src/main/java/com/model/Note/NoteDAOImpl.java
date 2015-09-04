@@ -28,4 +28,7 @@ public class NoteDAOImpl implements NoteDAO{
 		return noteList;
 	}
 
+	public void addNote(Note newNote) {	
+	}
+
 }

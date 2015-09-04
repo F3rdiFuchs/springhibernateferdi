@@ -6,10 +6,10 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>Notes:</title>
+		<title>All notes:</title>
 	</head> 
 	<body>
-		<h1>Notes:</h1>
+		<h1>All notes:</h1>
 		<c:if test="${!empty listNote}">
 	    <table border="1"class="tg">
 	    <tr>
@@ -31,5 +31,6 @@
     </table>
 </c:if>
 <br><br><a href="http://localhost:8080/springhibernateferdi">back</a>
+	<br><a href="http://localhost:8080/springhibernateferdi/newnote">new note</a>
 </body>
 </html>

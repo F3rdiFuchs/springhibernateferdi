@@ -6,4 +6,5 @@ import com.model.Note.Note;
 
 public interface NoteService {
 	public List <Note> listNotes();
+	public void addNote(Note newNote);
 }
