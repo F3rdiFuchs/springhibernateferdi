@@ -20,7 +20,7 @@ public class NoteDAOImpl implements NoteDAO{
 		Session session = this.sessionFactory.openSession();
 		session.beginTransaction();
 		
-		noteList		= session.createQuery("FROM Note n LEFT JOIN FETCH n.user").list();
+		noteList		= session.createQuery("FROM Note n LEFT JOIN FETCH n.user LEFT JOIN FETCH n.file").list();
 		
 		session.getTransaction().commit();
 		session.close();

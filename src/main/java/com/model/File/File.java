@@ -3,14 +3,13 @@ package com.model.File;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
-
 import com.model.Note.Note;
 
 @Entity
@@ -18,23 +17,24 @@ import com.model.Note.Note;
 public class File {
 	@Id
     @GeneratedValue
-    @Column(name="filid")
-	private Integer filid;
+    @Column(name="fileId")
+	private Integer fileId;
 	
 	@ManyToOne
-	@JoinColumn(name="note")
+	@JoinColumn(name="noteId")
 	private Note note;
 	
-	@Lob
+	@Lob 
+	@Basic(fetch=FetchType.LAZY)
 	@Column(name="file")
 	private byte[] file;
 
-	public Integer getFilid() {
-		return filid;
+	public Integer getFileId() {
+		return fileId;
 	}
 
-	public void setFilid(Integer filid) {
-		this.filid = filid;
+	public void setFileid(Integer fileId) {
+		this.fileId = fileId;
 	}
 
 	public Note getNote() {

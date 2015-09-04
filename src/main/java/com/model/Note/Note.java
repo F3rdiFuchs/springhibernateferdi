@@ -44,7 +44,7 @@ public class Note {
 	private String date;
 	
 	@OneToMany(mappedBy = "note",cascade=CascadeType.REMOVE)
-	private List<File> files;
+	private List<File> file;
 	
 	@ManyToMany(mappedBy = "notes", fetch=FetchType.EAGER)
 	private List<Category> category;
@@ -82,12 +82,13 @@ public class Note {
 		this.date = date;
 	}
 
-	public List<File> getFiles() {
-		return files;
+
+	public List<File> getFile() {
+		return file;
 	}
 
-	public void setFiles(List<File> files) {
-		this.files = files;
+	public void setFile(List<File> file) {
+		this.file = file;
 	}
 
 	public List<Category> getCategory() {

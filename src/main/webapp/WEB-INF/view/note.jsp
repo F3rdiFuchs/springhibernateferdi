@@ -25,7 +25,7 @@
 	            <td>${note.category}</td>
 	            <td>${note.note}</td>
 	            <td>${note.date}</td>
-	            <td>${note.files}</td>
+	            <td>${note.file}</td>
 	        </tr>
 	    </c:forEach>
     </table>
