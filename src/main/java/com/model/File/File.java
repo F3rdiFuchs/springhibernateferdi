@@ -1,10 +1,12 @@
 package com.model.File;
 
+import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
@@ -20,10 +22,10 @@ public class File {
 	private Integer filid;
 	
 	@ManyToOne
-	@JoinColumn(name="noteId")
+	@JoinColumn(name="note")
 	private Note note;
 	
-	@NotNull
+	@Lob
 	@Column(name="file")
 	private byte[] file;
 

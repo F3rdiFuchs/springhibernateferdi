@@ -15,13 +15,16 @@ public class NoteDAOImpl implements NoteDAO{
 
 	public List<Note> listNotes() {
 		List noteList = new ArrayList();
+		List categoryList = new ArrayList();
+		
 		Session session = this.sessionFactory.openSession();
 		session.beginTransaction();
 		
-		noteList= session.createQuery("FROM Note n LEFT JOIN FETCH n.user").list();
+		noteList		= session.createQuery("FROM Note n LEFT JOIN FETCH n.user").list();
 		
 		session.getTransaction().commit();
 		session.close();
+		
 		return noteList;
 	}
 

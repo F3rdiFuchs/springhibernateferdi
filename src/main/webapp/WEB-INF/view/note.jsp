@@ -17,6 +17,7 @@
 	        <td>Category:</td>
 	        <td>Note:</td>
 	        <td>Date:</td>
+	        <td>File:</td>
 	    </tr>
 	    <c:forEach items="${listNote}" var="note">
 	        <tr>
@@ -24,6 +25,7 @@
 	            <td>${note.category}</td>
 	            <td>${note.note}</td>
 	            <td>${note.date}</td>
+	            <td>${note.files}</td>
 	        </tr>
 	    </c:forEach>
     </table>

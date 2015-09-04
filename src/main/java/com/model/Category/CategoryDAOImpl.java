@@ -9,9 +9,9 @@ import org.hibernate.SessionFactory;
 public class CategoryDAOImpl implements CategoryDAO {
 	private SessionFactory sessionFactory;
 	
-	public CategoryDAOImpl(SessionFactory _sessionFactory)
+	public CategoryDAOImpl(SessionFactory sessionFactory)
 	{
-		this.sessionFactory = _sessionFactory;
+		this.sessionFactory = sessionFactory;
 	}
 	
 	public List<Category> listCategory() {
