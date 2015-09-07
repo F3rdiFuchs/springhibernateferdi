@@ -1,6 +1,5 @@
 package com.model.Note;
 
-import java.util.Date;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -44,7 +43,7 @@ public class Note {
 	@Column(name="date")
 	private String date;
 	
-	@OneToMany(mappedBy = "note",cascade=CascadeType.REMOVE)
+	@OneToMany(mappedBy = "note",cascade={CascadeType.REMOVE,CascadeType.PERSIST} )
 	private List<File> file;
 	
 	@ManyToMany(mappedBy = "notes", fetch=FetchType.EAGER)

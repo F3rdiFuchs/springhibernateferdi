@@ -93,6 +93,18 @@
     	</constructor-arg>
 	</bean>
 	
+	<bean id="dataDAO" class="com.model.Data.DataDAOImpl">
+		<constructor-arg>
+        	<ref bean="sessionFactory" />
+    	</constructor-arg>
+	</bean>
+	
+	<bean id="fileDAO" class="com.model.File.FileDAOImpl">
+		<constructor-arg>
+        	<ref bean="sessionFactory" />
+    	</constructor-arg>
+	</bean>
+	
 	<bean id="userService" class="com.service.UserService.UserServiceImpl">
 		<property name="userDAO" ref="userDAO"></property>
 	</bean>
@@ -125,6 +137,14 @@
 		<property name="categoryDAO" ref="categoryDAO"></property>
 	</bean>
 	
+	<bean id="dataService" class="com.service.DataService.DataServiceImpl">
+		<property name="dataDAO" ref="dataDAO"></property>
+	</bean>
+	
+	<bean id="fileService" class="com.service.FileService.FileServiceImpl">
+		<property name="fileDAO" ref="fileDAO"></property>
+	</bean>
+	
 	<bean id="conversionService" class="org.springframework.context.support.ConversionServiceFactoryBean">
 	    <property name="converters">
 	        <list>
@@ -132,5 +152,16 @@
 	        </list>
 	    </property> 
 	</bean>
+	
+	<bean id="multipartResolver"
+        class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+ 
+         <!-- setting maximum upload size -->
+        <property name="maxUploadSize" value="20971520" /> <!-- 20MB -->
+         
+        <!-- max size of file in memory (in bytes) -->
+        <property name="maxInMemorySize" value="1048576" /> <!-- 1MB -->
+ 
+    </bean>
 	
 </beans>

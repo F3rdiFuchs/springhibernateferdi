@@ -1,5 +1,6 @@
 package com.model.File;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -25,7 +26,13 @@ public class File {
 	@JoinColumn(name="noteId")
 	private Note note;
 	
-    @OneToOne(fetch = FetchType.LAZY, mappedBy="file")
+	@Column(name="fileName")
+	private String fileName;
+	
+	@Column(name="fileSize")
+	private Long fileSize;
+	
+    @OneToOne(fetch = FetchType.LAZY, mappedBy="file", cascade={CascadeType.REMOVE,CascadeType.PERSIST})
 	private Data data;
 
 	public Integer getFileId() {
@@ -34,6 +41,22 @@ public class File {
 
 	public void setFileid(Integer fileId) {
 		this.fileId = fileId;
+	}
+
+	public String getFileName() {
+		return fileName;
+	}
+
+	public void setFileName(String fileName) {
+		this.fileName = fileName;
+	}
+
+	public Long getFileSize() {
+		return fileSize;
+	}
+
+	public void setFileSize(Long fileSize) {
+		this.fileSize = fileSize;
 	}
 
 	public Note getNote() {
@@ -55,5 +78,4 @@ public class File {
 	public void setFileId(Integer fileId) {
 		this.fileId = fileId;
 	}
-	
 }

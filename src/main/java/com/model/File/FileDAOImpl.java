@@ -9,17 +9,17 @@ import org.hibernate.SessionFactory;
 import com.model.Note.Note;
 
 public class FileDAOImpl implements FileDAO{
-	private SessionFactory m_sessionFactory;
+	private SessionFactory sessionFactory;
 	
-	public FileDAOImpl(SessionFactory _sessionFactory)
+	public FileDAOImpl(SessionFactory sessionFactory)
 	{
-		this.m_sessionFactory = _sessionFactory;
+		this.sessionFactory = sessionFactory;
 	}
 	
 	public List<File> listFilesByUser(Integer noteId) {
 		List fileList = new ArrayList();
 		Note note = new Note();
-		Session session = this.m_sessionFactory.openSession();
+		Session session = this.sessionFactory.openSession();
 		session.beginTransaction();
 		
 		
@@ -33,5 +33,13 @@ public class FileDAOImpl implements FileDAO{
 		session.close();
 		
 		return fileList;
+	}
+
+	public void addFile(File file) {
+		Session session = this.sessionFactory.openSession();
+		session.beginTransaction();
+		session.save(file);
+		session.getTransaction().commit();
+		session.close();
 	}
 }

@@ -25,9 +25,20 @@ public class Category {
 	@Enumerated(EnumType.STRING)
 	private ECategory categoryId;
 	
+	@Column(name="description")
+	private String description;
+	
 	@ManyToMany
 	@JoinTable(name="NOTECATEGORY", joinColumns = @JoinColumn(name = "categoryId"),inverseJoinColumns = @JoinColumn(name = "noteId"))
 	private List<Note> notes;
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
 
 	public ECategory getCategoryId() {
 		return categoryId;

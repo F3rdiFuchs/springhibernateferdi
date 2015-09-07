@@ -9,14 +9,25 @@
 	</head> 
 	<body>
 		<h1>Upload:</h1>
-		<form:form method="POST" enctype="multipart/form-data">
+		<form:form method="POST" enctype="multipart/form-data" action="newnote">
 			<table border ="1">
 				
 				<tr>
 					  <td>User:</td>
-					  <td><select "name="user">
+					  <td><select name="user" id="user">
 							   	<c:forEach items="${listUser}" var="user">
 							   		<option value = "${user.userId}">${user.userName}</option>
+							   	</c:forEach>
+						   </select>
+					</td>
+					<td></td>
+				</tr>
+				
+				<tr>
+					  <td>Category:</td>
+					  <td><select name="category" id="category">
+							   	<c:forEach items="${listCategory}" var="category">
+							   		<option value = "${category.categoryId}">${category.categoryId}</option>
 							   	</c:forEach>
 						   </select>
 					</td>
@@ -31,7 +42,7 @@
 				
 				<tr>
 					<td>Documents:</td>
-				  	<td><input type="file" id="file" name="file" multiple></td>
+				  	<td><input type="file" id="fileUpload" name="fileUpload" multiple></td>
 				  	<td></td>
 				</tr>
 				

@@ -9,7 +9,6 @@ public class GuarantorServiceImpl implements GuarantorService{
 	private GuarantorDAO guarantorDAO;
 	
 	public List<Guarantor> listGuarantor() {
-		// TODO Auto-generated method stub
 		return this.guarantorDAO.listGuarantor();
 	}
 

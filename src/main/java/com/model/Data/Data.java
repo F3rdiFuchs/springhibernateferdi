@@ -25,4 +25,28 @@ public class Data {
 	@OneToOne
     @PrimaryKeyJoinColumn
 	private File file;
+
+	public int getFildid() {
+		return fildid;
+	}
+
+	public void setFildid(int fildid) {
+		this.fildid = fildid;
+	}
+
+	public byte[] getData() {
+		return data;
+	}
+
+	public void setData(byte[] data) {
+		this.data = data;
+	}
+
+	public File getFile() {
+		return file;
+	}
+
+	public void setFile(File file) {
+		this.file = file;
+	}
 }

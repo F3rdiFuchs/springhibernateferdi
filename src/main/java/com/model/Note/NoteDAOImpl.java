@@ -13,6 +13,7 @@ public class NoteDAOImpl implements NoteDAO{
 		this.sessionFactory = sessionFactory;
 	}
 
+	@SuppressWarnings("unchecked")
 	public List<Note> listNotes() {
 		List noteList = new ArrayList();
 		List categoryList = new ArrayList();
@@ -20,7 +21,7 @@ public class NoteDAOImpl implements NoteDAO{
 		Session session = this.sessionFactory.openSession();
 		session.beginTransaction();
 		
-		noteList		= session.createQuery("FROM Note n LEFT JOIN FETCH n.user LEFT JOIN FETCH n.file").list();
+		noteList	= session.createQuery("FROM Note n LEFT JOIN FETCH n.user LEFT JOIN FETCH n.file").list();
 		
 		session.getTransaction().commit();
 		session.close();
@@ -29,7 +30,6 @@ public class NoteDAOImpl implements NoteDAO{
 	}
 
 	public void addNote(Note newNote) {	
-		
 		Session session = this.sessionFactory.openSession();
 		session.beginTransaction();
 		session.persist(newNote);
