@@ -38,7 +38,7 @@ public class FileDAOImpl implements FileDAO{
 	public void addFile(File file) {
 		Session session = this.sessionFactory.openSession();
 		session.beginTransaction();
-		session.save(file);
+		session.persist(file);
 		session.getTransaction().commit();
 		session.close();
 	}

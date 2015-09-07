@@ -3,12 +3,12 @@ package com.model.File;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
+import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
 import com.model.Data.Data;
@@ -32,8 +32,9 @@ public class File {
 	@Column(name="fileSize")
 	private Long fileSize;
 	
-    @OneToOne(fetch = FetchType.LAZY, mappedBy="file", cascade={CascadeType.REMOVE,CascadeType.PERSIST})
-	private Data data;
+    @OneToOne(cascade={CascadeType.REMOVE,CascadeType.PERSIST})
+    @PrimaryKeyJoinColumn
+    private Data data;
 
 	public Integer getFileId() {
 		return fileId;
