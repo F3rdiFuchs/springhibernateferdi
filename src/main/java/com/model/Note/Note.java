@@ -1,5 +1,6 @@
 package com.model.Note;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -9,6 +10,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
@@ -44,9 +46,10 @@ public class Note {
 	private String date;
 	
 	@OneToMany(mappedBy = "note",cascade={CascadeType.REMOVE,CascadeType.PERSIST})
-	private List<File> file;
+	private List<File> file = new ArrayList<File>();
 	
-	@ManyToMany(mappedBy = "notes", fetch=FetchType.EAGER)
+	@ManyToMany(fetch=FetchType.EAGER)
+	@JoinTable(name="notecategory", joinColumns = @JoinColumn(name = "noteid"), inverseJoinColumns = @JoinColumn(name = "categoryid"))
 	private List<Category> category;
 
 	

@@ -32,8 +32,7 @@ public class File {
 	@Column(name="filesize")
 	private Long fileSize;
 	
-    @OneToOne(cascade={CascadeType.REMOVE,CascadeType.PERSIST})
-    @PrimaryKeyJoinColumn
+    @OneToOne(cascade={CascadeType.ALL}, mappedBy="file")
     private Data data;
 
 	public Integer getFileId() {

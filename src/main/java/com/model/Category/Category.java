@@ -2,35 +2,30 @@ package com.model.Category;
 
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 import com.model.Note.Note;
-
 import Enum.ECategory;
 
 @Entity
-@Table(name="CATEGORY")
+@Table(name="category")
 public class Category {
 	@Id
-	@Column(name="categoryId")
+	@Column(name="categoryid")
 	@Enumerated(EnumType.STRING)
 	private ECategory categoryId;
 	
 	@Column(name="description")
 	private String description;
 	
-	@ManyToMany
-	@JoinTable(name="NOTECATEGORY", joinColumns = @JoinColumn(name = "categoryId"),inverseJoinColumns = @JoinColumn(name = "noteId"))
-	private List<Note> notes;
+	@ManyToMany(mappedBy = "category")
+	private List<Note> note;
 
 	public String getDescription() {
 		return description;
@@ -48,12 +43,12 @@ public class Category {
 		this.categoryId = categoryId;
 	}
 
-	public List<Note> getNotes() {
-		return notes;
+	public List<Note> getNote() {
+		return note;
 	}
 
-	public void setNotes(List<Note> notes) {
-		this.notes = notes;
+	public void setNote(List<Note> note) {
+		this.note = note;
 	}
 	
 	@Override
@@ -62,17 +57,19 @@ public class Category {
 		switch(categoryId)
 		{
 		case animals:
-			return "animals";
+			return"animals";
 		case important:
 			return "important";
 		case other:
+			return "other";
+		case sports:
 			return "sports";
 		case technique:
 			return "technique";
 		case todo:
 			return "todo";
 		default:
-			return "unknown";
+			return null;
 		}
 	}
 }

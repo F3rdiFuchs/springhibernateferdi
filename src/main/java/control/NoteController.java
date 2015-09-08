@@ -128,32 +128,29 @@ public class NoteController {
 	}
 	
 	@RequestMapping(value="/newnote", method= RequestMethod.POST)
-	private String saveNote(@Valid Note note, BindingResult result, @RequestParam MultipartFile[] fileUpload)
+	private String saveNote(@Valid Note note, BindingResult result, @RequestParam MultipartFile[] fileUpload) 
 	{
-		byte[] bytes = null;
-		List<File> files = new ArrayList<File>();
-		Data data = new Data();
-		File file = new File();
-		
 		if(fileUpload[0].getSize()!=0)
 		{
 			for(MultipartFile mfile : fileUpload)
 			{
 				try 
 				{
-					
+					byte[] bytes = null;
+					Data data = new Data();
+					File file = new File();
 					file.setData(data);
 					file.setFileName(mfile.getOriginalFilename());
 					file.setFileSize(mfile.getSize());
 					bytes = mfile.getBytes();
 					data.setData(bytes);
+					note.getFile().add(file);
 				} 
 				catch (IOException e) 
 				{
+					throw new RuntimeException(e);
 				}
-				files.add(file);
 			}
-			note.setFile(files);
 		}
 		
 		Timestamp tstamp = new Timestamp(new Date().getTime()); 

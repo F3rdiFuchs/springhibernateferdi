@@ -19,6 +19,4 @@ public class CompanyCarServiceImpl implements CompanyCarService{
 	public void setCompanyCarDAO(CompanyCarDAO companyCarDAO) {
 		this.companyCarDAO = companyCarDAO;
 	}
-	
-
 }

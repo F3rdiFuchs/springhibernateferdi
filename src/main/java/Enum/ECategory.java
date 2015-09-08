@@ -18,6 +18,8 @@ public enum ECategory{
 		case important:
 			return "important";
 		case other:
+			return "other";
+		case sports:
 			return "sports";
 		case technique:
 			return "technique";
