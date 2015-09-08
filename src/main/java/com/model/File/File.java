@@ -15,21 +15,21 @@ import com.model.Data.Data;
 import com.model.Note.Note;
 
 @Entity
-@Table(name="FILE")
+@Table(name="file")
 public class File {
 	@Id
     @GeneratedValue
-    @Column(name="fileId")
+    @Column(name="fileid")
 	private Integer fileId;
 	
 	@ManyToOne
-	@JoinColumn(name="noteId")
+	@JoinColumn(name="noteid")
 	private Note note;
 	
-	@Column(name="fileName")
+	@Column(name="filename")
 	private String fileName;
 	
-	@Column(name="fileSize")
+	@Column(name="filesize")
 	private Long fileSize;
 	
     @OneToOne(cascade={CascadeType.REMOVE,CascadeType.PERSIST})

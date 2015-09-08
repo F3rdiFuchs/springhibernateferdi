@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.transaction.Transactional;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -134,17 +135,18 @@ public class NoteController {
 		Data data = new Data();
 		File file = new File();
 		
-		if(fileUpload.length !=0)
+		if(fileUpload[0].getSize()!=0)
 		{
 			for(MultipartFile mfile : fileUpload)
 			{
 				try 
 				{
-					bytes = mfile.getBytes();
-					data.setData(bytes);
+					
 					file.setData(data);
 					file.setFileName(mfile.getOriginalFilename());
 					file.setFileSize(mfile.getSize());
+					bytes = mfile.getBytes();
+					data.setData(bytes);
 				} 
 				catch (IOException e) 
 				{

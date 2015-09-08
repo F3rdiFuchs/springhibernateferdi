@@ -3,6 +3,8 @@ package com.model.File;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
@@ -16,11 +18,12 @@ public class FileDAOImpl implements FileDAO{
 		this.sessionFactory = sessionFactory;
 	}
 	
+	@SuppressWarnings("unchecked")
 	public List<File> listFilesByUser(Integer noteId) {
-		List fileList = new ArrayList();
+		List<File> fileList = new ArrayList<File>();
 		Note note = new Note();
 		Session session = this.sessionFactory.openSession();
-		session.beginTransaction();
+		org.hibernate.Transaction tx2 = session.beginTransaction();
 		
 		
 		note = (Note)session.get(Note.class, noteId);
@@ -29,17 +32,18 @@ public class FileDAOImpl implements FileDAO{
 				.setEntity("note", note)
 				.list();;
 		
-		session.getTransaction().commit();
-		session.close();
+				tx2.commit();
+				session.close();
 		
 		return fileList;
 	}
-
+	
+	@Transactional
 	public void addFile(File file) {
 		Session session = this.sessionFactory.openSession();
-		session.beginTransaction();
+		org.hibernate.Transaction tx2 = session.beginTransaction();
 		session.persist(file);
-		session.getTransaction().commit();
+		tx2.commit();
 		session.close();
 	}
 }

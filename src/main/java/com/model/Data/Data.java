@@ -11,12 +11,12 @@ import javax.persistence.Table;
 import com.model.File.File;
 
 @Entity
-@Table(name="DATA")
+@Table(name="data")
 public class Data {
 	
 	@Id
 	@Column(name="fileid")
-	private int fildid;
+	private int fildId;
 	
 	@Lob
 	@Column(name="data")
@@ -25,12 +25,12 @@ public class Data {
 	@OneToOne(fetch = FetchType.LAZY, mappedBy="data")
 	private File file;
 
-	public int getFildid() {
-		return fildid;
+	public int getFildId() {
+		return fildId;
 	}
 
 	public void setFildid(int fildid) {
-		this.fildid = fildid;
+		this.fildId = fildid;
 	}
 
 	public byte[] getData() {

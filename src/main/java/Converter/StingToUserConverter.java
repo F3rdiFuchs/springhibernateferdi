@@ -21,11 +21,14 @@ public class StingToUserConverter implements Converter <String, User> {
 
 	public User convert(String userId) {
 		User uUser = new User();
+		
 		Session session = this.sessionFactory.openSession();
 		session.beginTransaction();
 		
 		uUser = (User)session.get(User.class, Integer.parseInt(userId));
 		
+		session.getTransaction().commit();
+		session.close();
 		return uUser;
 	
 	}

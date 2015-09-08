@@ -55,4 +55,24 @@ public class Category {
 	public void setNotes(List<Note> notes) {
 		this.notes = notes;
 	}
+	
+	@Override
+	public String toString()
+	{
+		switch(categoryId)
+		{
+		case animals:
+			return "animals";
+		case important:
+			return "important";
+		case other:
+			return "sports";
+		case technique:
+			return "technique";
+		case todo:
+			return "todo";
+		default:
+			return "unknown";
+		}
+	}
 }

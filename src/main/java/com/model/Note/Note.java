@@ -12,8 +12,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
-import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -25,15 +23,15 @@ import com.model.User.User;
 
 
 @Entity
-@Table(name="NOTE")
+@Table(name="note")
 public class Note {
 	@Id
     @GeneratedValue
-    @Column(name="noteId")
+    @Column(name="noteid")
 	private Integer noteId;
 	
 	@ManyToOne
-	@JoinColumn(name="userId")
+	@JoinColumn(name="userid")
 	private User user;
 	
 	@NotNull
@@ -45,7 +43,7 @@ public class Note {
 	@Column(name="date")
 	private String date;
 	
-	@OneToMany(mappedBy = "note",cascade={CascadeType.REMOVE,CascadeType.PERSIST} )
+	@OneToMany(mappedBy = "note",cascade={CascadeType.REMOVE,CascadeType.PERSIST})
 	private List<File> file;
 	
 	@ManyToMany(mappedBy = "notes", fetch=FetchType.EAGER)
