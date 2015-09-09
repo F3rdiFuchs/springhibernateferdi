@@ -2,38 +2,30 @@ package com.model.Data;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
-import javax.persistence.OneToOne;
-import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
-
-import com.model.File.File;
 
 @Entity
 @Table(name="data")
 public class Data {
 	
 	@Id
-	@Column(name="fileid")
-	private int fildId;
+	@GeneratedValue
+	@Column(name="dataid")
+	private int dataId;
 	
 	@Lob
 	@Column(name="data")
 	private byte[] data;
 	
-	@OneToOne
-	@JoinColumn(name="fileid")
-	private File file;
-
-	public int getFildId() {
-		return fildId;
+	public int getDataId() {
+		return dataId;
 	}
 
-	public void setFildid(int fildid) {
-		this.fildId = fildid;
+	public void setDataId(int dataId) {
+		this.dataId = dataId;
 	}
 
 	public byte[] getData() {
@@ -42,13 +34,5 @@ public class Data {
 
 	public void setData(byte[] data) {
 		this.data = data;
-	}
-
-	public File getFile() {
-		return file;
-	}
-
-	public void setFile(File file) {
-		this.file = file;
 	}
 }

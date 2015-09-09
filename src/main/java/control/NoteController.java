@@ -144,7 +144,7 @@ public class NoteController {
 					file.setFileSize(mfile.getSize());
 					bytes = mfile.getBytes();
 					data.setData(bytes);
-					note.getFile().add(file);
+					note.getFiles().add(file);
 				} 
 				catch (IOException e) 
 				{

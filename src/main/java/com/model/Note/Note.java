@@ -46,7 +46,7 @@ public class Note {
 	private String date;
 	
 	@OneToMany(mappedBy = "note",cascade={CascadeType.REMOVE,CascadeType.PERSIST})
-	private List<File> file = new ArrayList<File>();
+	private List<File> files = new ArrayList<File>();
 	
 	@ManyToMany(fetch=FetchType.EAGER)
 	@JoinTable(name="notecategory", joinColumns = @JoinColumn(name = "noteid"), inverseJoinColumns = @JoinColumn(name = "categoryid"))
@@ -85,13 +85,13 @@ public class Note {
 		this.date = date;
 	}
 
-
-	public List<File> getFile() {
-		return file;
+	
+	public List<File> getFiles() {
+		return files;
 	}
 
-	public void setFile(List<File> file) {
-		this.file = file;
+	public void setFiles(List<File> files) {
+		this.files = files;
 	}
 
 	public List<Category> getCategory() {
@@ -101,5 +101,4 @@ public class Note {
 	public void setCategory(List<Category> category) {
 		this.category = category;
 	}
-	
 }

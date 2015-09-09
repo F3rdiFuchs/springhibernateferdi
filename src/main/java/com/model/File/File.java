@@ -8,7 +8,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
-import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
 import com.model.Data.Data;
@@ -26,14 +25,15 @@ public class File {
 	@JoinColumn(name="noteid")
 	private Note note;
 	
+	@OneToOne(cascade={CascadeType.ALL})
+	@JoinColumn(name="dataid")
+    private Data data;
+	
 	@Column(name="filename")
 	private String fileName;
 	
 	@Column(name="filesize")
 	private Long fileSize;
-	
-    @OneToOne(cascade={CascadeType.ALL}, mappedBy="file")
-    private Data data;
 
 	public Integer getFileId() {
 		return fileId;
@@ -77,5 +77,11 @@ public class File {
 
 	public void setFileId(Integer fileId) {
 		this.fileId = fileId;
+	}
+	
+	@Override
+	public String toString()
+	{
+		return this.fileName;
 	}
 }
