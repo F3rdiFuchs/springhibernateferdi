@@ -8,6 +8,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
@@ -45,7 +46,7 @@ public class Note {
 	@Column(name="date")
 	private String date;
 	
-	@OneToMany(mappedBy = "note",cascade={CascadeType.REMOVE,CascadeType.PERSIST})
+	@OneToMany(fetch=FetchType.EAGER, mappedBy = "note",cascade={CascadeType.REMOVE,CascadeType.PERSIST})
 	private List<File> files = new ArrayList<File>();
 	
 	@ManyToMany(fetch=FetchType.EAGER)

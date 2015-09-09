@@ -32,7 +32,6 @@ private SessionFactory sessionFactory;
 	
 	public void sendMessage(Message message) {
 		Session session = this.sessionFactory.openSession();
-		
 		session.beginTransaction();		
 		session.persist(message);
 		session.getTransaction().commit();
@@ -48,8 +47,5 @@ private SessionFactory sessionFactory;
 		session.getTransaction().commit();
 		
 		session.close();
-		
 	}
-
 }
-/*m LEFT JOIN FETCH g.user*/

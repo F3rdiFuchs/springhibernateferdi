@@ -99,31 +99,20 @@ public class NoteController {
 	{
 		_model.addAttribute("note", new Note());
 		_model.addAttribute("listNote", this.noteService.listNotes());
+		
 		return "note";
 	}
 	
 	@RequestMapping(value = "/newnote", method = RequestMethod.GET)
 	private String newNote(Model model)
 	{
+
 		model.addAttribute("user", new User());
 		model.addAttribute("listUser", this.userService.listUser());
 		
 		model.addAttribute("category", new Category());
 		model.addAttribute("listCategory", this.categoryService.listCategory());
-		
-		//
-		File iFile = new File();
-		Data iData = new Data();
-		User iUser = new User();
-		Note iNote = new Note();
-		Category iCategory = new Category();
-		
-		model.addAttribute("addFile", iFile);
-		model.addAttribute("addData", iData);
-		model.addAttribute("addUser", iUser);
-		model.addAttribute("addNote", iNote);
-		model.addAttribute("addCategory", iCategory);
-		
+
 		return "newnote";
 	}
 	
@@ -139,6 +128,7 @@ public class NoteController {
 					byte[] bytes = null;
 					Data data = new Data();
 					File file = new File();
+					file.setNote(note);
 					file.setData(data);
 					file.setFileName(mfile.getOriginalFilename());
 					file.setFileSize(mfile.getSize());

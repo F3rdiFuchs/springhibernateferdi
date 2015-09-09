@@ -7,6 +7,8 @@ import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.Table;
 
+import com.model.File.File;
+
 @Entity
 @Table(name="data")
 public class Data {

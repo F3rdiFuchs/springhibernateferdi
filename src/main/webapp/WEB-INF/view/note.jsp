@@ -13,7 +13,7 @@
 		<c:if test="${!empty listNote}">
 	    <table border="1"class="tg">
 	    <tr>
-	        <td>User:</t>
+	        <td>User:</td>
 	        <td>Category:</td>
 	        <td>Note:</td>
 	        <td>Date:</td>
