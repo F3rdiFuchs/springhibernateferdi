@@ -9,15 +9,45 @@
 	<head>
 		<meta charset="utf-8">
 		<title>Userlist</title>
+		<style>
+		#login-box {
+			width: 300px;
+			padding: 20px;
+			margin: 100px auto;
+			background: #fff;
+			-webkit-border-radius: 2px;
+			-moz-border-radius: 2px;
+			border: 1px solid #000;
+		}
+	</style>
 	</head> 
 	<body>
-		<h1>Start</h1>
-		<br>
-		 <a href="http://localhost:8080/springhibernateferdi/users">Userlist</a><br>
-		 <a href="http://localhost:8080/springhibernateferdi/groups">Groups</a><br>
-		 <a href="http://localhost:8080/springhibernateferdi/tasks">Tasks</a><br>
-		 <a href="http://localhost:8080/springhibernateferdi/cars">Cars</a><br>
-		 <a href="http://localhost:8080/springhibernateferdi/message">Messages</a><br>
-		 <a href="http://localhost:8080/springhibernateferdi/note">Notes</a><br>
+		<div id="login-box">
+			<h3>Login with Username and Password</h3>
+
+		<form name="loginForm" method="POST">
+
+			<table>
+				<tr>
+					<td>User:</td>
+					<td><input type='text' name='userName'></td>
+				</tr>
+				<tr>
+					<td>Password:</td>
+					<td><input type='password' name='passWord' /></td>
+				</tr>
+				<tr>
+					<td colspan='2'><input name="submit" type="submit" value="Login" /></td>
+				</tr>
+			</table>
+		</form>
+	</div>
+		
+		 <a href="http://localhost:8080/springhibernateferdi/users">Userlist</a>
+		 <a href="http://localhost:8080/springhibernateferdi/groups">Groups</a>
+		 <a href="http://localhost:8080/springhibernateferdi/tasks">Tasks</a>
+		 <a href="http://localhost:8080/springhibernateferdi/cars">Cars</a>
+		 <a href="http://localhost:8080/springhibernateferdi/message">Messages</a>
+		 <a href="http://localhost:8080/springhibernateferdi/note">Notes</a>
 	</body>
 </html>

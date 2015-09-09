@@ -45,8 +45,9 @@ public class Tasks {
 	@Column(name="status")
 	private Boolean status;
 	
-	@ManyToMany(cascade = CascadeType.ALL)
-	@JoinTable(name="USERTASKS", joinColumns = @JoinColumn(name = "taskId"),inverseJoinColumns = @JoinColumn(name = "userId"))
+	//@ManyToMany
+	//@JoinTable(name="USERTASKS", joinColumns = @JoinColumn(name = "taskId"),inverseJoinColumns = @JoinColumn(name = "userId"))
+	@ManyToMany(mappedBy = "tasks")
 	private List<User> user;
 	
 	

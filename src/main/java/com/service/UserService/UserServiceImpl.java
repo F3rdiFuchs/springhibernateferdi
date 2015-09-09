@@ -31,4 +31,9 @@ public class UserServiceImpl implements UserService {
 	public void removeUser(Integer id) {
 		this.userDAO.removeUser(id);
 	}
+
+	public boolean checkLogin(String userName, String passWord) {
+
+		return this.userDAO.checkLogin(userName, passWord);
+	}
 }

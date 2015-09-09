@@ -8,4 +8,5 @@ public interface UserService {
 	public void addUser(User user);
 	public List<User> listUser();
 	public void removeUser(Integer id); 
+	public boolean checkLogin(String userName, String passWord);
 }
